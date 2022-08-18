@@ -4,6 +4,7 @@ import config from './config'
 import cors from 'cors'
 import helmet from 'helmet'
 import routes from './routes'
+import errorMiddleware from './middlewares/error.middleware'
 
 
 const PORT = config.port || 4000
@@ -27,9 +28,11 @@ app.get('/', (req: Request, res: Response) => {
   })
 })
 
+app.use(errorMiddleware)
+
 // start express server
 app.listen(PORT, () => {
-  console.log(`Server is starting at port:${PORT}`)
+  console.log(`Server is starting at http://localhost:${PORT}`)
 })
 
 export default app
