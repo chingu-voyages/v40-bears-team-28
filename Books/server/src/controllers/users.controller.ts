@@ -51,7 +51,7 @@ export const createUser = async (
       username: request.body.username,
       email: request.body.email,
       image: request.body.image,
-      is_verified: request.body.is_verified,
+      is_verified: false,
       password: request.body.password
     } as User
     const checkEmail = await usersModel.showByEmail(newUser.email)

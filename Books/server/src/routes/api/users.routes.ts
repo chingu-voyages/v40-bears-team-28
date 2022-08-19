@@ -1,4 +1,6 @@
 import { Router } from 'express'
+import validateAuthToken from '../../middlewares/auth.token.middleware'
+import validateResetPasswordToken from '../../middlewares/resetPassword.token.middleware'
 import {
   authenticateUser,
   changePassword,
@@ -10,8 +12,6 @@ import {
   getUser,
   updateUser
 } from '../../controllers/users.controller'
-import validateAuthToken from '../../middlewares/auth.token.middleware'
-import validateResetPasswordToken from '../../middlewares/resetPassword.token.middleware'
 
 const usersRoutes = Router()
 
@@ -22,12 +22,17 @@ usersRoutes
   .patch(validateAuthToken, changePassword)
   .delete(validateAuthToken, deleteUser)
 
-usersRoutes.route('/users/:id').get(validateAuthToken, getUser).put(validateAuthToken, updateUser)
+usersRoutes.route('/users/:id')
+  .get(validateAuthToken, getUser)
+  .put(validateAuthToken, updateUser)
 
-usersRoutes.route('/users/check-email').post(checkEmailExistence)
+usersRoutes.route('/users/check-email')
+  .post(checkEmailExistence)
 
-usersRoutes.route('/users/forgot-password').patch(validateResetPasswordToken, forgotPassword)
+usersRoutes.route('/users/forgot-password')
+  .patch(validateResetPasswordToken, forgotPassword)
 
-usersRoutes.route('/users/authenticate').post(authenticateUser)
+usersRoutes.route('/users/authenticate')
+  .post(authenticateUser)
 
 export default usersRoutes
