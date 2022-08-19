@@ -51,20 +51,20 @@ export const createUser = async (
       username: request.body.username,
       email: request.body.email,
       image: request.body.image,
+      is_verified: request.body.is_verified,
       password: request.body.password
     } as User
     const checkEmail = await usersModel.showByEmail(newUser.email)
     if (checkEmail) {
       response.status(409).json({ status: 'Failed', message: 'Email is already used' })
+      return
     }
     const user = await usersModel.create(newUser)
     const token = jwt.sign({ user: user }, config.token as unknown as string)
     response.status(201).json({
       statue: 'Success',
       data: {
-        username: user.username,
-        email: user.email,
-        image: user.image,
+        ...user,
         token
       },
       message: 'User got created successfully'
@@ -86,6 +86,16 @@ export const updateUser = async (
       image: request.body.image
     } as User
     const id = request.params.id
+    if (user.email) {
+      const getUser = await usersModel.show(id)
+      const checkEmail = await usersModel.showByEmail(user.email)
+      if (checkEmail && getUser.email !== user.email) {
+        response.status(409).json({
+          status: 'Failed', message: 'This email is already used please use another email'
+        })
+        return
+      }
+    }
     const updatedUser = await usersModel.update(id, user)
     const token = jwt.sign({ user: updatedUser }, config.token as unknown as string)
     response.status(200).json({
@@ -123,14 +133,9 @@ export const changePassword = async (
         })
         return
       }
-      const updatedUser = await usersModel.updatePassword(email, password)
-      const token = jwt.sign({ user: updatedUser }, config.token as unknown as string)
+      await usersModel.updatePassword(email, password)
       response.status(200).json({
         status: 'Success',
-        body: {
-          ...updatedUser,
-          token
-        },
         message: 'Password got changed successfully'
       })
     }

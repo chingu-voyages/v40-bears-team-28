@@ -8,7 +8,7 @@ export const unauthorizedError = (next: NextFunction) => {
   error.status = 401
   next(error)
 }
-const validateToken = (request: Request, response: Response, next: NextFunction) => {
+const validateAuthToken = (request: Request, response: Response, next: NextFunction) => {
   try {
     const authorizationHeader = request.headers.authorization as string
     const token = authorizationHeader?.split(' ')[1]
@@ -23,4 +23,4 @@ const validateToken = (request: Request, response: Response, next: NextFunction)
   }
 }
 
-export default validateToken
+export default validateAuthToken

@@ -7,6 +7,7 @@ export type User = {
   username: string
   email: string
   image: string
+  is_verified?: boolean
   password: string
 }
 
@@ -55,7 +56,7 @@ export class UsersModel {
   async showByEmail(email: string): Promise<User> {
     try {
       const connect = await database.connect()
-      const sql = `SELECT id, username, email, image
+      const sql = `SELECT email
                    FROM users
                    WHERE email = $1`
       const result = await connect.query(sql, [email])
@@ -69,14 +70,15 @@ export class UsersModel {
   async create(user: User): Promise<User> {
     try {
       const connect = await database.connect()
-      const sql = `INSERT INTO users (username, email, image, password)
-                   VALUES ($1, $2, $3, $4)
-                   RETURNING id, username, email, image`
+      const sql = `INSERT INTO users (username, email, image, is_verified, password)
+                   VALUES ($1, $2, $3, $4, $5)
+                   RETURNING id, username, email, image, is_verified`
       const password = hashSync(user.password + config.pepper, config.salt)
       const result = await connect.query(sql, [
         user.username,
         user.email,
         user.image,
+        user.is_verified,
         password
       ])
       connect.release()
@@ -125,7 +127,7 @@ export class UsersModel {
       const sql = `UPDATE users
                    SET password=$1
                    WHERE email = $2
-                   RETURNING id, username, email, image`
+                   RETURNING id, username, email, image, is_verified`
       const password = hashSync(newPassword + config.pepper, config.salt)
       const result = await connect.query(sql, [password, email])
       connect.release()
@@ -135,13 +137,28 @@ export class UsersModel {
     }
   }
 
+  async updateVerification(id: string): Promise<User> {
+    try {
+      const connect = await database.connect()
+      const sql = `UPDATE users
+                   SET is_verified=$1
+                   WHERE id = $2
+                   RETURNING id, email, is_verified`
+      const result = await connect.query(sql, [true, id])
+      connect.release()
+      return result.rows[0]
+    } catch (error) {
+      throw new Error(`Unable to update verification, ${(error as Error).message}`)
+    }
+  }
+
   async delete(email: string): Promise<User> {
     try {
       const connect = await database.connect()
       const sql = `DELETE
                    FROM users
                    WHERE email = $1
-                   RETURNING id, username, email, image`
+                   RETURNING id, username, email, image, is_verified`
       const result = await connect.query(sql, [email])
       connect.release()
       return result.rows[0]
@@ -163,12 +180,8 @@ export class UsersModel {
         const { password } = result.rows[0]
         const isPasswordValid = compareSync(user.password + config.pepper, password)
         if (isPasswordValid) {
-          return {
-            id: result.rows[0].id,
-            username: result.rows[0].username,
-            email: result.rows[0].email,
-            image: result.rows[0].image
-          } as User
+          const { id, username, email, image, is_verified } = result.rows[0]
+          return { id, username, email, image, is_verified } as User
         } else {
           return null
         }
