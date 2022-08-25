@@ -56,6 +56,7 @@ module.exports = {
         'import/default': 'off',
         'import/no-named-as-default-member': 'off',
         'import/no-named-as-default': 'off',
+        'import/no-unresolved': 'off',
 
         'react/react-in-jsx-scope': 'off',
 
@@ -72,4 +73,4 @@ module.exports = {
       }
     }
   ]
-}
+};
