@@ -30,7 +30,6 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use(errorMiddleware)
 
-// start express server
 app.listen(PORT, () => {
   console.log(`Server is starting at http://localhost:${PORT}`)
 })

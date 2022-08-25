@@ -60,7 +60,7 @@ export const createUser = async (
       return
     }
     const user = await usersModel.create(newUser)
-    const token = jwt.sign({ user: user }, config.token as unknown as string)
+    const token = jwt.sign({ user: user }, config.authSecret as unknown as string)
     response.status(201).json({
       statue: 'Success',
       data: {
@@ -97,7 +97,7 @@ export const updateUser = async (
       }
     }
     const updatedUser = await usersModel.update(id, user)
-    const token = jwt.sign({ user: updatedUser }, config.token as unknown as string)
+    const token = jwt.sign({ user: updatedUser }, config.authSecret as unknown as string)
     response.status(200).json({
       status: 'Success',
       data: {
@@ -153,7 +153,7 @@ export const checkEmailExistence = async (
     const email = request.body.email
     const user = await usersModel.showByEmail(email)
     if (user) {
-      const token = jwt.sign({ user }, config.secondToken as unknown as string)
+      const token = jwt.sign({ user }, config.resetPasswordSecret as unknown as string)
       response.status(200).json({
         status: 'Success',
         data: { ...user, token },
@@ -183,7 +183,7 @@ export const forgotPassword = async (
     // @ts-ignore
     const email = decode['user'].email
     const updatedUser = await usersModel.updatePassword(email, password)
-    const token = jwt.sign({ user: updatedUser }, config.token as unknown as string)
+    const token = jwt.sign({ user: updatedUser }, config.authSecret as unknown as string)
     response.status(200).json({
       status: 'Success',
       data: {
@@ -231,7 +231,7 @@ export const authenticateUser = async (
       password: request.body.password
     } as User
     const authenticatedUser = await usersModel.authenticate(userToAuthenticate)
-    const token = jwt.sign({ user: authenticatedUser }, config.token as unknown as string)
+    const token = jwt.sign({ user: authenticatedUser }, config.authSecret as unknown as string)
     if (!authenticatedUser) {
       response.status(401).json({ status: 'Unauthorized user', message: 'Password is wrong' })
       return

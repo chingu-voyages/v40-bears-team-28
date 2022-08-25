@@ -13,8 +13,8 @@ const {
   POSTGRES_PASSWORD,
   BCRYPT_PASSWORD,
   SALT_TIMES,
-  TOKEN_SECRET,
-  SECOND_TOKEN_SECRET
+  AUTH_SECRET,
+  RESET_PASSWORD_SECRET
 } = process.env
 
 export default {
@@ -28,6 +28,6 @@ export default {
   password: POSTGRES_PASSWORD,
   pepper: BCRYPT_PASSWORD,
   salt: parseInt(SALT_TIMES as string, 10),
-  token: TOKEN_SECRET,
-  secondToken: SECOND_TOKEN_SECRET
+  authSecret: AUTH_SECRET,
+  resetPasswordSecret: RESET_PASSWORD_SECRET
 }

@@ -12,7 +12,7 @@ const validateResetPasswordToken = (request: Request, response: Response, next: 
   try {
     const authorizationHeader = request.headers.authorization as string
     const token = authorizationHeader?.split(' ')[1]
-    const decode = jwt.verify(token, config.secondToken as unknown as string)
+    const decode = jwt.verify(token, config.resetPasswordSecret as unknown as string)
     if (decode) {
       next()
     } else {

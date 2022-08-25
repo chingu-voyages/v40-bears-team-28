@@ -12,7 +12,7 @@ const validateAuthToken = (request: Request, response: Response, next: NextFunct
   try {
     const authorizationHeader = request.headers.authorization as string
     const token = authorizationHeader?.split(' ')[1]
-    const decode = jwt.verify(token, config.token as unknown as string)
+    const decode = jwt.verify(token, config.authSecret as unknown as string)
     if (decode) {
       next()
     } else {
