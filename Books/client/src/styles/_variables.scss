@@ -1,0 +1,26 @@
+/*colors */
+$clr-aqua-deep: 177 100% 14%;
+$clr-white: 60 100% 100%;
+$clr-jungle-mist: 177 100% 14%;
+$clr-saffron-mango: 36 93% 68%;
+$clr-black-pearl: 178 100% 6%;
+$clr-sherwood-green: 177 100% 10%;
+
+/* font sizes */
+$fs-400: 1.125rem;
+$fs-500: 1.25rem;
+$fs-600: 2rem;
+$fs-700: 2.75rem;
+$fs-800: 3rem;
+$fs-900: 3.5rem;
+
+/*  Breakpoints */
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+$ff-cardo: 'Jost', serif;
+$ff-dm-sans: 'DM Sans', sans-serif;
