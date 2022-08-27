@@ -27,7 +27,6 @@ function useSignUp({ setLogin }: UseSignUpArgs): UseSignUpReturn {
       password: Yup.string().required('Password Required').min(8, 'Password is too short'),
       confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match')
     }), onSubmit: (values, actions) => {
-      const controller = new AbortController()
       const { username, email, password } = values
       const user = { username, email, image: 'not exist', password }
       actions.resetForm()
@@ -45,7 +44,6 @@ function useSignUp({ setLogin }: UseSignUpArgs): UseSignUpReturn {
         .catch(error => {
           setErrorMsg(error.response.data.message)
         })
-      controller.abort()
     }
   })
 
