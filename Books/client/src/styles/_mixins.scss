@@ -1,0 +1,28 @@
+/* Thanks to https://www.toptal.com/css/sass-mixins-keep-your-stylesheets-dry */
+
+/* Media query */
+@mixin screen($size, $type: max, $pixels: $sm) {
+  @if $size == 'mobile-sm' {
+    @media screen and (#{$type}-width: $sm) {
+      @content;
+    }
+  } @else if $size == 'mobile-md' {
+    @media screen and (#{$type}-width: $md) {
+      @content;
+    }
+  } @else if $size == 'mobile-lg' {
+    @media screen and (#{$type}-width: $lg) {
+      @content;
+    }
+  } @else if $size == 'tablet' {
+    @media screen and (#{$type}-width: $xl) {
+      @content;
+    }
+  } @else if $size == 'custom' {
+    @media screen and (#{$type}-width: #{$pixels}px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
