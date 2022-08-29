@@ -4,6 +4,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './styles/main.scss';
 import 'swiper/scss';
+
+import Landing from './features/misc/routes/Landing';
+import UserLibrary from './features/misc/routes/UserLibrary/UserLibrary';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
