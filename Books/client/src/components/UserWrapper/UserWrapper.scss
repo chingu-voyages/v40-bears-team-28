@@ -1,0 +1,62 @@
+// I don't know how to otherwise get access to variable, importing main.scss in index.tsx is not working :(
+@import '../../styles/variables';
+
+.userWrapper {
+  min-height: 100vh;
+  background-color: $clr-user-background;
+  display: flex;
+  flex-direction: column;
+}
+
+.userHeader {
+  flex-grow: 1;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.librarySearch {
+  width: 100%;
+  padding: 15px 30px 15px 45px;
+  border-radius: 12px;
+  background-color: $clr-white;
+  color: $clr-user-background;
+  background-image: url('/assets/images/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
+.librarySearch::placeholder {
+  color: $clr-user-background;
+}
+
+.userMain {
+  margin: 10px;
+  flex-grow: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.userFooter {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userNavigation {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navigationLink a svg {
+  transform: scale(1.3);
+}
+
+.navigationLink.active {
+  border-bottom: 5px $clr-saffron-mango solid;
+}
