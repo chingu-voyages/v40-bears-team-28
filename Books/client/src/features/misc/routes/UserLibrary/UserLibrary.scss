@@ -1,0 +1,57 @@
+// I don't know how to otherwise get access to variable, importing main.scss in index.tsx is not working :(
+@import '../../../../styles/variables';
+
+.contentWrapper {
+  background-color: $clr-aqua-deep;
+  height: 100%;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 10px;
+}
+
+@media screen and (max-width: $sm) {
+  .contentWrapper {
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiperSlide {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+
+.slideText {
+  display: flex;
+  flex-direction: column;
+}
+
+.slideTitle {
+  color: $clr-white;
+  font-size: 2rem;
+}
+
+.slideAuthors {
+  color: $clr-user-background;
+  font-size: 1.25rem;
+}
+
+.slideImg {
+  display: block;
+  width: 160px;
+  height: 230px;
+  object-fit: contain;
+}
