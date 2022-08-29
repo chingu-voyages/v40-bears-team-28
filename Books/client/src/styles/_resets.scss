@@ -19,8 +19,8 @@ picture {
 body {
   font-family: $ff-dm-sans;
   font-size: $fs-400;
-  color: hsl($clr-white);
-  background-color: hsl($clr-aqua-deep);
+  color: $clr-white;
+  background-color: $clr-aqua-deep;
   line-height: 1.5;
   min-height: 100vh;
 }

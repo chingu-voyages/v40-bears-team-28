@@ -1,10 +1,11 @@
 /*colors */
-$clr-aqua-deep: 177 100% 14%;
-$clr-white: 60 100% 100%;
-$clr-jungle-mist: 177 100% 14%;
-$clr-saffron-mango: 36 93% 68%;
-$clr-black-pearl: 178 100% 6%;
-$clr-sherwood-green: 177 100% 10%;
+$clr-aqua-deep: hsl(177, 100%, 14%);
+$clr-white: hsl(60, 100%, 100%);
+$clr-jungle-mist: hsl(177, 100%, 14%);
+$clr-saffron-mango: hsl(36, 93%, 68%);
+$clr-black-pearl: hsl(178, 100%, 6%);
+$clr-sherwood-green: hsl(177, 100%, 10%);
+$clr-user-background: hsl(163, 29%, 75%);
 
 /* font sizes */
 $fs-400: 1.125rem;
