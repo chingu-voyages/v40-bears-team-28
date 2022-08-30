@@ -8,8 +8,14 @@
   flex-direction: column;
 }
 
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+}
+
 .userHeader {
-  flex-grow: 1;
   padding: 15px;
   display: flex;
   align-items: center;
@@ -39,14 +45,21 @@
 }
 
 .userFooter {
-  flex-grow: 2;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.groupedLinks {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .userNavigation {
   width: 100%;
+  padding: 15px;
   list-style-type: none;
   display: flex;
   justify-content: space-around;
@@ -59,4 +72,37 @@
 
 .navigationLink a.active {
   border-bottom: 5px $clr-saffron-mango solid;
+}
+
+@media screen and (min-width: $lg) {
+  .userWrapper {
+    flex-direction: row-reverse;
+  }
+
+  .wrapper {
+    width: 85%;
+  }
+
+  .userHeader {
+    justify-content: right;
+  }
+
+  .userMain {
+    padding: 100px 50px 100px 100px;
+  }
+
+  .librarySearch {
+    width: 30%;
+  }
+
+  .userNavigation {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding: 40px;
+  }
+
+  .groupedLinks {
+    flex-direction: column;
+  }
 }

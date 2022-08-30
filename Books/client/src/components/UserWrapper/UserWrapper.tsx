@@ -32,16 +32,18 @@ export const UserWrapper = () => {
   const user = mockUser;
   return (
     <div className="userWrapper">
-      <header className="userHeader">
-        <input
-          className="librarySearch"
-          placeholder="Find your next favorite book"
-          type={'search'}
-        />
-      </header>
-      <main className="userMain">
-        <Outlet context={user} />
-      </main>
+      <div className="wrapper">
+        <header className="userHeader">
+          <input
+            className="librarySearch"
+            placeholder="Find your next favorite book"
+            type={'search'}
+          />
+        </header>
+        <main className="userMain">
+          <Outlet context={user} />
+        </main>
+      </div>
       <footer className="userFooter">
         <nav className="userNavigation">
           <li className="navigationLink">
@@ -49,16 +51,18 @@ export const UserWrapper = () => {
               <HomeIcon />
             </NavLink>
           </li>
-          <li className="navigationLink">
-            <NavLink to={`/users/library/${user.username}`}>
-              <BookListIcon />
-            </NavLink>
-          </li>
-          <li className="navigationLink">
-            <NavLink to={`/users/bookmarks/${user.username}`}>
-              <BookmarkIcon />
-            </NavLink>
-          </li>
+          <div className="groupedLinks">
+            <li className="navigationLink">
+              <NavLink to={`/users/library/${user.username}`}>
+                <BookListIcon />
+              </NavLink>
+            </li>
+            <li className="navigationLink">
+              <NavLink to={`/users/bookmarks/${user.username}`}>
+                <BookmarkIcon />
+              </NavLink>
+            </li>
+          </div>
           <li className="navigationLink">
             <NavLink to={`/users/logout/${user.username}`}>
               <LogOutIcon />

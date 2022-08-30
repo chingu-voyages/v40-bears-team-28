@@ -6,22 +6,30 @@
   height: 100%;
   border-radius: 12px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
   padding: 0 10px;
-}
-
-@media screen and (max-width: $sm) {
-  .contentWrapper {
-  }
+  position: relative;
 }
 
 .swiper {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.userPageTitle {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translateX(-50%);
+}
+
+// this class from swiper component
+.swiper-wrapper {
   align-items: center;
 }
 
@@ -42,11 +50,17 @@
 .slideTitle {
   color: $clr-white;
   font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .slideAuthors {
   color: $clr-user-background;
   font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.slideLink {
+  color: $clr-saffron-mango;
 }
 
 .slideImg {
@@ -54,4 +68,25 @@
   width: 160px;
   height: 230px;
   object-fit: contain;
+}
+
+@media screen and (min-width: $lg) {
+  .userPageTitle {
+    position: absolute;
+    top: 30px;
+    left: 0;
+  }
+  .swiper {
+    width: 100%;
+    position: relative;
+    right: 5%;
+  }
+
+  .swiperSlide {
+    flex-direction: row;
+  }
+
+  .slideText {
+    padding: 0 15px;
+  }
 }
