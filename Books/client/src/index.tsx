@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './styles/main.scss';
 import 'swiper/scss';
 
+import { UserWrapper } from './components/UserWrapper';
 import Landing from './features/misc/routes/Landing';
 import UserLibrary from './features/misc/routes/UserLibrary/UserLibrary';
 import reportWebVitals from './reportWebVitals';
@@ -16,7 +17,9 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/:username/library" element={<UserLibrary />} />
+          <Route path="/users" element={<UserWrapper />}>
+            <Route path="library/:username" element={<UserLibrary />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
