@@ -27,11 +27,11 @@ Users Routes
       image: 'image-path',
       password: '123456789'
       ```
-4. Check if email exist or not: '/api/users/check-email' [POST]
+4. Check if email exist or not: '/api/users/check' [POST]
     - None
     - None
     - `email: 'email@email.com'`
-5. Authenticate user: '/api/users/authenticate' [POST]
+5. Authenticate user: '/api/users/auth' [POST]
     - None
     - None
     - ```javascript
@@ -51,7 +51,7 @@ Users Routes
     - `Authorization: 'Bearer ${token}'`
     - None
     - `password: 'new password'`
-8. Updating forgot password: '/api/users/forgot-password' [PATCH]
+8. Updating forgot password: '/api/users/reset' [PATCH]
     - `Authorization: 'Bearer ${token}'`
     - None
     - `password: 'new password'`
@@ -59,3 +59,7 @@ Users Routes
     - `Authorization: 'Bearer ${token}'`
     - None
     - `email: 'email@email.com'`
+10. Get user session credentials: '/api/users/auth/session'
+    - None
+    - None
+    - None

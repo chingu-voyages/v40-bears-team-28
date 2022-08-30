@@ -1,6 +1,6 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
 const {
   PORT,
@@ -14,8 +14,9 @@ const {
   BCRYPT_PASSWORD,
   SALT_TIMES,
   AUTH_SECRET,
-  RESET_PASSWORD_SECRET
-} = process.env
+  RESET_PASSWORD_SECRET,
+  COOKIE_SECRET,
+} = process.env;
 
 export default {
   port: parseInt(PORT as string, 10),
@@ -29,5 +30,6 @@ export default {
   pepper: BCRYPT_PASSWORD,
   salt: parseInt(SALT_TIMES as string, 10),
   authSecret: AUTH_SECRET,
-  resetPasswordSecret: RESET_PASSWORD_SECRET
-}
+  resetPasswordSecret: RESET_PASSWORD_SECRET,
+  cookieSecret: COOKIE_SECRET,
+};
