@@ -1,6 +1,6 @@
 import './UserWrapper.scss';
 import React from 'react';
-import { Link, useParams, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 import { ReactComponent as BookListIcon } from '../../assets/images/booklist-icon.svg';
 import { ReactComponent as BookmarkIcon } from '../../assets/images/bookmark-icon.svg';
@@ -30,7 +30,6 @@ const mockUser = {
 export const UserWrapper = () => {
   // there I thought making a request to server by that username, to get current user or something like that
   const user = mockUser;
-  const { username } = useParams();
   return (
     <div className="userWrapper">
       <header className="userHeader">
@@ -46,24 +45,24 @@ export const UserWrapper = () => {
       <footer className="userFooter">
         <nav className="userNavigation">
           <li className="navigationLink">
-            <Link to={`/${username}/home`}>
+            <NavLink to={`/users/home/${user.username}`}>
               <HomeIcon />
-            </Link>
+            </NavLink>
           </li>
-          <li className="navigationLink active">
-            <Link to={`/${username}/library`}>
+          <li className="navigationLink">
+            <NavLink to={`/users/library/${user.username}`}>
               <BookListIcon />
-            </Link>
+            </NavLink>
           </li>
           <li className="navigationLink">
-            <Link to={`/${username}/bookmarks`}>
+            <NavLink to={`/users/bookmarks/${user.username}`}>
               <BookmarkIcon />
-            </Link>
+            </NavLink>
           </li>
           <li className="navigationLink">
-            <Link to={`/${username}/logout`}>
+            <NavLink to={`/users/logout/${user.username}`}>
               <LogOutIcon />
-            </Link>
+            </NavLink>
           </li>
         </nav>
       </footer>
