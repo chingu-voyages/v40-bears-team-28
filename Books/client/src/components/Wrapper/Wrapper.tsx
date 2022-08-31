@@ -1,4 +1,4 @@
-import './UserWrapper.scss';
+import './Wrapper.scss';
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
@@ -27,25 +27,25 @@ const mockUser = {
   ],
 };
 
-export const UserWrapper = () => {
+export const Wrapper = () => {
   // there I thought making a request to server by that username, to get current user or something like that
   const user = mockUser;
   return (
-    <div className="userWrapper">
-      <div className="wrapper">
-        <header className="userHeader">
+    <div className="mainWrapper">
+      <div className="secondaryWrapper">
+        <header className="wrapperHeader">
           <input
             className="librarySearch"
             placeholder="Find your next favorite book"
             type={'search'}
           />
         </header>
-        <main className="userMain">
+        <main className="wrapperMain">
           <Outlet context={user} />
         </main>
       </div>
-      <footer className="userFooter">
-        <nav className="userNavigation">
+      <footer className="wrapperFooter">
+        <nav className="wrapperNavigation">
           <li className="navigationLink">
             <NavLink to={`/users/home/${user.username}`}>
               <HomeIcon />

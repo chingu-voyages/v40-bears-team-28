@@ -1,3 +1,3 @@
-import { UserWrapper } from '../UserWrapper';
+import { Wrapper } from '../Wrapper';
 
 test('should do something', async () => {});
