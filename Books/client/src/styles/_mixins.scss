@@ -26,3 +26,15 @@
     @content;
   }
 }
+
+/*Buttons*/
+@mixin button($type, $color, $background-color: transparent) {
+  padding: 1rem 5rem;
+  border-radius: 12px;
+  margin: 3rem;
+  color: $color;
+  background-color: $background-color;
+  @if $type == 'secondary' {
+    border: 1px solid hsl($clr-saffron-mango);
+  }
+}
