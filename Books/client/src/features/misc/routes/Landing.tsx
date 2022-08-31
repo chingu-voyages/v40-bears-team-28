@@ -5,6 +5,10 @@ import './Landing.scss';
 export const Landing = () => {
   return (
     <>
+      <nav className="flex justify-end">
+        <button className="secondary-btn">Sign In</button>
+        <button className="primary-btn">Sign Up</button>
+      </nav>
       <section className="flex justify-between section-container">
         <div className="hero__text">
           <h1 className="h1 heading">Find your next best book and read it all day.</h1>
