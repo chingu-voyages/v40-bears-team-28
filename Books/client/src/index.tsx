@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+
+import App from './App';
 import './styles/main.scss';
 import 'swiper/scss';
-
-import { Wrapper } from './components/Wrapper';
-import Landing from './features/misc/routes/Landing';
-import UserLibrary from './features/misc/routes/UserLibrary/UserLibrary';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
@@ -15,12 +13,7 @@ root.render(
   <React.StrictMode>
     <HelmetProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/users" element={<Wrapper />}>
-            <Route path="library/:username" element={<UserLibrary />} />
-          </Route>
-        </Routes>
+        <App />
       </BrowserRouter>
     </HelmetProvider>
   </React.StrictMode>
