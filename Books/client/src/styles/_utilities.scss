@@ -1,0 +1,35 @@
+.flex {
+  display: flex;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.text-center {
+  text-align: center;
+}
+.bg-jungle-mist {
+  background-color: hsl($clr-jungle-mist);
+}
+.bg-sherwood-green {
+  background-color: hsl($clr-sherwood-green);
+}
+.text-jungle-mist {
+  color: hsl($clr-jungle-mist);
+}
+
+.primary-btn {
+  @include button('primary', hsl($clr-black-pearl), hsl($clr-saffron-mango));
+  &:hover {
+    background-color: hsl($clr-chardonnay);
+  }
+}
+.secondary-btn {
+  @include button('secondary', hsl($clr-saffron-mango));
+  &:hover {
+    color: hsl($clr-jungle-mist);
+    border: solid 1px hsl($clr-jungle-mist);
+  }
+}
