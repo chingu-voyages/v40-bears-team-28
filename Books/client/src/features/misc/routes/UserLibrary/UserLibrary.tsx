@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useOutletContext } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 import './UserLibrary.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { BookOverview } from '../../../../components/BookOverview';
 import { Head } from '../../../../components/Head/Head';
 import useWindowSize from '../../../../hooks/useWindowSize';
 
@@ -45,14 +46,7 @@ export default function UserLibrary() {
       <Swiper slidesPerView={width > 760 ? 2 : 1} simulateTouch={true} className="swiper">
         {books.map(({ title, image, id, authors }: Book) => (
           <SwiperSlide className="swiperSlide" key={id}>
-            <img src={image} className="slideImg" alt={title} />
-            <div className="slideText">
-              <h2 className="slideTitle">{title}</h2>
-              <span className="slideAuthors">{authors}</span>
-              <Link className="slideLink" to={`/books/${id}`}>
-                Continue reading
-              </Link>
-            </div>
+            <BookOverview title={title} image={image} authors={authors} id={id} key={id} />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -33,43 +33,6 @@
   align-items: center;
 }
 
-.swiperSlide {
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: center;
-}
-
-.slideText {
-  display: flex;
-  flex-direction: column;
-}
-
-.slideTitle {
-  color: $clr-white;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.slideAuthors {
-  color: $clr-jet-stream;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.slideLink {
-  color: $clr-saffron-mango;
-}
-
-.slideImg {
-  display: block;
-  width: 160px;
-  height: 230px;
-  object-fit: contain;
-}
-
 @media screen and (min-width: $lg) {
   .userPageTitle {
     position: absolute;
@@ -80,13 +43,5 @@
     width: 100%;
     position: relative;
     right: 5%;
-  }
-
-  .swiperSlide {
-    flex-direction: row;
-  }
-
-  .slideText {
-    padding: 0 15px;
   }
 }
