@@ -29,9 +29,9 @@
 
 /*Buttons*/
 @mixin button($type, $color, $background-color: transparent) {
-  padding: 1rem 5rem;
+  padding: 0.8rem 2.5rem;
   border-radius: 12px;
-  margin: 3rem;
+  margin: 2rem;
   color: $color;
   background-color: $background-color;
   @if $type == 'secondary' {
