@@ -1,3 +1,5 @@
+@import '../../../styles/main.scss';
+
 .section-container {
   padding: 2rem;
 }
@@ -49,4 +51,21 @@
 
 .stats {
   width: 8rem;
+}
+
+@include screen(laptop) {
+  .hero__text {
+    max-width: 100%;
+  }
+  .book-of-the-week {
+    text-align: center;
+    width: 100%;
+    margin: 2rem;
+    & > div {
+      width: 100%;
+    }
+  }
+  .stats {
+    width: 100%;
+  }
 }
