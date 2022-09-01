@@ -36,3 +36,11 @@
     border: solid 1px hsl($clr-jungle-mist);
   }
 }
+@include screen(laptop) {
+  .stacked-flex {
+    flex-direction: column;
+  }
+  .desktop-only {
+    display: none;
+  }
+}
