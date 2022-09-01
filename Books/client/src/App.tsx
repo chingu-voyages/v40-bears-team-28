@@ -16,9 +16,9 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/home" element={<HomePage />} />
-        </Route>
-        <Route path="/users" element={<OuterPage />}>
-          <Route path="library/:username" element={<UserLibrary />} />
+          <Route path="/users" element={<OuterPage />}>
+            <Route path="library/:username" element={<UserLibrary />} />
+          </Route>
         </Route>
       </Routes>
     </AuthContextProvider>
