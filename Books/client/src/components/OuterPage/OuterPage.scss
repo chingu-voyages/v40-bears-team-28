@@ -3,7 +3,7 @@
 
 .mainWrapper {
   min-height: 100vh;
-  background-color: $clr-user-background;
+  background-color: $clr-jet-stream;
   display: flex;
   flex-direction: column;
 }
@@ -27,14 +27,14 @@
   padding: 15px 30px 15px 45px;
   border-radius: 12px;
   background-color: $clr-white;
-  color: $clr-user-background;
+  color: $clr-jet-stream;
   background-image: url('/assets/images/search-icon.svg');
   background-repeat: no-repeat;
   background-position: 10px;
 }
 
 .librarySearch::placeholder {
-  color: $clr-user-background;
+  color: $clr-jet-stream;
 }
 
 .wrapperMain {
