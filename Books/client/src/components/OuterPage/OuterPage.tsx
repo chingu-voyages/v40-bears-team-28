@@ -1,4 +1,4 @@
-import './Wrapper.scss';
+import './OuterPage.scss';
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ const mockUser = {
   ],
 };
 
-export const Wrapper = () => {
+export const OuterPage = () => {
   // there I thought making a request to server by that username, to get current user or something like that
   const user = mockUser;
   return (
