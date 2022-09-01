@@ -1,0 +1,41 @@
+.login-form-container {
+}
+
+.login-form {
+
+  fieldset {
+  }
+
+  &__label {
+  }
+
+  &__input {
+
+    &::placeholder {
+    }
+
+    &.error {
+    }
+
+    &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+    }
+  }
+
+  &__error-msg {
+  }
+
+  &__submit {
+
+    &:hover {
+    }
+  }
+
+  &__register {
+
+    button {
+    }
+  }
+}
+
+.return-to-login {
+}
