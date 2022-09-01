@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { AuthUser } from '../context/auth.context';
 
 type GetUserArgs = {
