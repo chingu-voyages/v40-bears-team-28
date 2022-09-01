@@ -19,7 +19,7 @@ export const Landing = () => {
           </p>
           <input type="search" name="search" id="" className="search bg-jungle-mist" />
         </div>
-        <img src={readingNook} alt="" />
+        <img src={readingNook} alt="" className="desktop-only" />
       </section>
       <section className="popular-books section-container bg-sherwood-green overlap">
         <h3 className="heading h3">Popular Books Right Now</h3>
@@ -47,7 +47,7 @@ export const Landing = () => {
           </div>
         </div>
       </section>
-      <section className="book-of-the-week section-container bg-sherwood-green overlay flex">
+      <section className="book-of-the-week section-container bg-sherwood-green overlay flex stacked-flex">
         <div>
           <h3 className="heading h3">Book of the Week</h3>
           <p className="text-jungle-mist">
