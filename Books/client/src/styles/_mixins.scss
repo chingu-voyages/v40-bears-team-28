@@ -10,7 +10,7 @@
     @media screen and (#{$type}-width: $md) {
       @content;
     }
-  } @else if $size == 'mobile-lg' {
+  } @else if $size == 'laptop' {
     @media screen and (#{$type}-width: $lg) {
       @content;
     }
