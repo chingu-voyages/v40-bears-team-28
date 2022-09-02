@@ -1,6 +1,6 @@
-import { Head } from '../Head';
-
 import { render, waitFor } from '@/test/test-utils';
+
+import { Head } from '../Head';
 
 test('should add page title and description', async () => {
   const title = 'Hello World | BookHut';

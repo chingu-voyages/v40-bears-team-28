@@ -1,0 +1,47 @@
+// I don't know how to otherwise get access to variable, importing main.scss in index.tsx is not working :(
+@import '../../../../styles/variables';
+
+.contentWrapper {
+  background-color: $clr-aqua-deep;
+  height: 100%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 10px;
+  position: relative;
+}
+
+.swiper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userPageTitle {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translateX(-50%);
+}
+
+// this class from swiper component
+.swiper-wrapper {
+  align-items: center;
+}
+
+@media screen and (min-width: $lg) {
+  .userPageTitle {
+    position: absolute;
+    top: 30px;
+    left: 0;
+  }
+  .swiper {
+    width: 100%;
+    position: relative;
+    right: 5%;
+  }
+}

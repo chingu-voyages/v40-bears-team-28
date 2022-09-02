@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+
+.bookWrapper {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+
+.bookText {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookTitle {
+  color: $clr-white;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.bookAuthors {
+  color: $clr-jet-stream;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.bookLink {
+  color: $clr-saffron-mango;
+}
+
+.bookImg {
+  display: block;
+  width: 160px;
+  height: 230px;
+  object-fit: contain;
+}
+
+@media screen and (min-width: $lg) {
+  .bookText {
+    padding: 0 15px;
+  }
+
+  .bookWrapper {
+    flex-direction: row;
+  }
+}
