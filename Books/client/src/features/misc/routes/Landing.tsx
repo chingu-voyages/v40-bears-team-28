@@ -62,11 +62,11 @@ export const Landing = () => {
           <div className="flex justify-between stats">
             <div className="text-center">
               <p className="heading h4">273</p>
-              <p className="text-jungle-mist">Pages</p>
+              <p className="text-jungle-mist paragraph">Pages</p>
             </div>
             <div className="text-center">
               <p className="heading h4">4.5</p>
-              <p className="text-jungle-mist">Stars</p>
+              <p className="text-jungle-mist paragraph">Stars</p>
             </div>
           </div>
         </div>
