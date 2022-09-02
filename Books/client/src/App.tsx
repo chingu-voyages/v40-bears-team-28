@@ -1,17 +1,24 @@
 import React from 'react';
-import './styles/main.css';
-import AuthContextProvider from './context/auth.context';
 import { Route, Routes } from 'react-router-dom';
-import { LoginPage, HomePage } from './pages';
+
+import { Dashboard } from './components/Dashboard';
+import AuthContextProvider from './context/auth.context';
+import Landing from './features/misc/routes/Landing';
+import UserLibrary from './features/misc/routes/UserLibrary/UserLibrary';
 import PrivateRoutes from './hooks/PrivateRouters';
+import { LoginPage, HomePage } from './pages';
 
 function App() {
   return (
     <AuthContextProvider>
       <Routes>
-        <Route path='/login' element={<LoginPage />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route element={<PrivateRoutes />}>
-          <Route path='/home' element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/users" element={<Dashboard />}>
+            <Route path="library/:username" element={<UserLibrary />} />
+          </Route>
         </Route>
       </Routes>
     </AuthContextProvider>
