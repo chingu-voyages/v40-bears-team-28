@@ -1,7 +1,7 @@
 @import '../../../styles/main.scss';
 
 .section-container {
-  padding: 2rem;
+  padding: 5rem;
 }
 .hero__text {
   max-width: 45%;
@@ -9,10 +9,23 @@
     margin: 16px 0;
   }
 }
-.search {
-  height: 48px;
-  width: 100%;
+.search-form {
+  display: flex;
+  flex-direction: row;
   border-radius: 12px;
+  padding: 0.5rem;
+}
+.search-input {
+  flex-grow: 2;
+  border: none;
+  background-color: transparent;
+  &:focus {
+    outline: none;
+  }
+}
+.search-btn {
+  display: inline-block;
+  margin: 0;
 }
 
 .overlap {

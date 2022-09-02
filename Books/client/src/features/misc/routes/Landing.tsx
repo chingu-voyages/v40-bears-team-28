@@ -12,12 +12,17 @@ export const Landing = () => {
       <section className="flex justify-between section-container">
         <div className="hero__text">
           <h1 className="h1 heading">Find your next best book and read it all day.</h1>
-          <p className="paragraph">
+          <p className="paragraph text-jungle-mist">
             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
             voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
             occaecati cupiditate non provident
           </p>
-          <input type="search" name="search" id="" className="search bg-jungle-mist" />
+          <form action="" className="search-form bg-jungle-mist">
+            <input type="search" name="search" id="" className="search-input " />
+            <button type="submit" className="primary-btn search-btn">
+              Search for books
+            </button>
+          </form>
         </div>
         <img src={readingNook} alt="" className="desktop-only" />
       </section>
