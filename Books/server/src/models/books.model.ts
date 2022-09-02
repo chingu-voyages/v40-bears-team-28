@@ -1,73 +1,82 @@
-import database from '../database'
+import database from '../database';
 
 export type Book = {
   id?: string
+  book_id: number
   title: string
-  author: string
+  authors: string
   description: string
   publisher: string
-  publish_year: number
-  pages: number
-  avg_rating: number
-  cover: string
-  currently_reading: number
+  pages: string
+  year: string
+  image: string
+  url: string
 }
 
 export class BooksModel {
   async index(): Promise<Book[]> {
     try {
-      const connect = await database.connect()
+      const connect = await database.connect();
       const sql = `SELECT *
-                   FROM books`
-      const results = await connect.query(sql)
-      connect.release()
-      return results.rows
+                   FROM books`;
+      const results = await connect.query(sql);
+      connect.release();
+      return results.rows;
     } catch (error) {
-      throw new Error(`Unable to get all books, ${(error as Error).message}`)
+      throw new Error(`Unable to get all books, ${(error as Error).message}`);
     }
   }
 
-  async show(id: string): Promise<Book> {
+  async showByBookId(id: number): Promise<Book> {
     try {
-      const connect = await database.connect()
+      const connect = await database.connect();
       const sql = `SELECT *
                    FROM books
-                   WHERE id = $1`
-      const results = await connect.query(sql, [id])
-      connect.release()
-      return results.rows[0]
+                   WHERE book_id = $1`;
+      const results = await connect.query(sql, [id]);
+      connect.release();
+      return results.rows[0];
     } catch (error) {
-      throw new Error(`Unable to get book, ${(error as Error).message}`)
+      throw new Error(`Unable to get book, ${(error as Error).message}`);
     }
   }
 
   async create(book: Book): Promise<Book> {
     try {
-      const connect = await database.connect()
-      const sql = `INSERT INTO books (title, author, description, publisher, publish_year, pages, avg_rating, cover,
-                                      currently_reading)
+      const connect = await database.connect();
+      const sql = `INSERT INTO books (book_id, title, authors, description, publisher, pages, year, image, url)
                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-                   RETURNING *`
-      const results = await connect.query(sql, [book.title, book.author, book.description, book.publisher, book.publish_year, book.pages, book.avg_rating, book.cover, book.currently_reading])
-      connect.release()
-      return results.rows[0]
+                   RETURNING *`;
+      const results = await connect.query(sql, [
+        book.book_id,
+        book.title,
+        book.authors,
+        book.description,
+        book.publisher,
+        book.pages,
+        book.year,
+        book.image,
+        book.url,
+      ]);
+      connect.release();
+      return results.rows[0];
     } catch (error) {
-      throw new Error(`Unable to create book, ${(error as Error).message}`)
+      throw new Error(`Unable to create book, ${(error as Error).message}`);
     }
   }
 
   async delete(id: string): Promise<Book> {
     try {
-      const connect = await database.connect()
+      const connect = await database.connect();
       const sql = `DELETE
                    FROM books
                    WHERE id = $1
-                   RETURNING *`
-      const results = await connect.query(sql, [id])
-      connect.release()
-      return results.rows[0]
+                   RETURNING *`;
+      const results = await connect.query(sql, [id]);
+      connect.release();
+      return results.rows[0];
     } catch (error) {
-      throw new Error(`Unable to delete books, ${(error as Error).message}`)
+      throw new Error(`Unable to delete books, ${(error as Error).message}`);
     }
   }
 }
