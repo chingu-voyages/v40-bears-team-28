@@ -1,9 +1,7 @@
-import Login from '../features/Login'
+import Login from '../features/Login';
 
 function LoginPage() {
-  return (
-    <Login />
-  )
+  return <Login />;
 }
 
-export default LoginPage
+export default LoginPage;
