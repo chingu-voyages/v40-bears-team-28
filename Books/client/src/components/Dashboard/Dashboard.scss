@@ -1,0 +1,108 @@
+// I don't know how to otherwise get access to variable, importing main.scss in index.tsx is not working :(
+@import '../../styles/variables';
+
+.mainWrapper {
+  min-height: 100vh;
+  background-color: $clr-jet-stream;
+  display: flex;
+  flex-direction: column;
+}
+
+.secondaryWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+}
+
+.wrapperHeader {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.librarySearch {
+  width: 100%;
+  padding: 15px 30px 15px 45px;
+  border-radius: 12px;
+  background-color: $clr-white;
+  color: $clr-jet-stream;
+  background-image: url('/assets/images/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
+.librarySearch::placeholder {
+  color: $clr-jet-stream;
+}
+
+.wrapperMain {
+  margin: 10px;
+  flex-grow: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapperFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.groupedLinks {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapperNavigation {
+  width: 100%;
+  padding: 15px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navigationLink a svg {
+  transform: scale(1.3);
+}
+
+.navigationLink a.active {
+  border-bottom: 5px $clr-saffron-mango solid;
+}
+
+@media screen and (min-width: $lg) {
+  .mainWrapper {
+    flex-direction: row-reverse;
+  }
+
+  .secondaryWrapper {
+    width: 85%;
+  }
+
+  .wrapperHeader {
+    justify-content: right;
+  }
+
+  .wrapperMain {
+    padding: 100px 50px 100px 100px;
+  }
+
+  .librarySearch {
+    width: 30%;
+  }
+
+  .wrapperNavigation {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding: 40px;
+  }
+
+  .groupedLinks {
+    flex-direction: column;
+  }
+}
