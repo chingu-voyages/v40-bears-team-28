@@ -1,4 +1,4 @@
-import './OuterPage.scss';
+import './Dashboard.scss';
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ const mockUser = {
   ],
 };
 
-export const OuterPage = () => {
+export const Dashboard = () => {
   // there I thought making a request to server by that username, to get current user or something like that
   const user = mockUser;
   return (

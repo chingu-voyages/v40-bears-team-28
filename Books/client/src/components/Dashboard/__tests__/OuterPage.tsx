@@ -1,4 +1,4 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { OuterPage } from '../OuterPage';
+import { Dashboard } from '../Dashboard';
 
 test('should do something', async () => {});

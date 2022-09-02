@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { OuterPage } from './components/OuterPage';
+import { Dashboard } from './components/Dashboard';
 import AuthContextProvider from './context/auth.context';
 import Landing from './features/misc/routes/Landing';
 import UserLibrary from './features/misc/routes/UserLibrary/UserLibrary';
@@ -16,7 +16,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/home" element={<HomePage />} />
-          <Route path="/users" element={<OuterPage />}>
+          <Route path="/users" element={<Dashboard />}>
             <Route path="library/:username" element={<UserLibrary />} />
           </Route>
         </Route>
