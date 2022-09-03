@@ -3,7 +3,7 @@
 
 .mainWrapper {
   min-height: 100vh;
-  background-color: $clr-jet-stream;
+  background-color: hsl($clr-jet-stream);
   display: flex;
   flex-direction: column;
 }
@@ -26,15 +26,15 @@
   width: 100%;
   padding: 15px 30px 15px 45px;
   border-radius: 12px;
-  background-color: $clr-white;
-  color: $clr-jet-stream;
+  background-color: hsl($clr-white);
+  color: hsl($clr-jet-stream);
   background-image: url('/assets/images/search-icon.svg');
   background-repeat: no-repeat;
   background-position: 10px;
 }
 
 .librarySearch::placeholder {
-  color: $clr-jet-stream;
+  color: hsl($clr-jet-stream);
 }
 
 .wrapperMain {
@@ -71,7 +71,7 @@
 }
 
 .navigationLink a.active {
-  border-bottom: 5px $clr-saffron-mango solid;
+  border-bottom: 5px hsl($clr-saffron-mango) solid;
 }
 
 @media screen and (min-width: $lg) {
