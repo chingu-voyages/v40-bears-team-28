@@ -1,0 +1,52 @@
+/*colors */
+/* font sizes */
+/*  Breakpoints */
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+.bookWrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+
+.bookText {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookTitle {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.bookAuthors {
+  color: #add2c7;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.bookLink {
+  color: #f9bd62;
+}
+
+.bookImg {
+  display: block;
+  width: 160px;
+  height: 230px;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 1024px) {
+  .bookText {
+    padding: 0 15px;
+  }
+
+  .bookWrapper {
+    flex-direction: row;
+  }
+}
+
+/*# sourceMappingURL=BookOverview.css.map */
