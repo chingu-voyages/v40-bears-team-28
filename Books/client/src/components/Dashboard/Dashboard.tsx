@@ -1,5 +1,4 @@
 import './Dashboard.scss';
-import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 import { ReactComponent as BookListIcon } from '../../assets/images/booklist-icon.svg';
