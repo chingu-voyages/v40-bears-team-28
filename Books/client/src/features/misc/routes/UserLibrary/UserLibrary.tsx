@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react';
 import './UserLibrary.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { BookOverview } from '../../../../components/BookOverview';
 import { Head } from '../../../../components/Head/Head';
+import { AuthContext } from '../../../../context/auth.context';
 import useWindowSize from '../../../../hooks/useWindowSize';
 
 type apiResponse = {
@@ -22,12 +22,8 @@ type Book = {
   url: string;
 };
 
-type User = {
-  username: string;
-};
-
 export default function UserLibrary() {
-  const user = useOutletContext<User>();
+  const { user } = useContext(AuthContext);
   const { width } = useWindowSize();
   const [books, setBooks] = useState<Book[]>([]);
 
