@@ -10,7 +10,7 @@
     @media screen and (#{$type}-width: $md) {
       @content;
     }
-  } @else if $size == 'mobile-lg' {
+  } @else if $size == 'laptop' {
     @media screen and (#{$type}-width: $lg) {
       @content;
     }
@@ -24,5 +24,17 @@
     }
   } @else {
     @content;
+  }
+}
+
+/*Buttons*/
+@mixin button($type, $color, $background-color: transparent) {
+  padding: 0.8rem 2.5rem;
+  border-radius: 12px;
+  margin: 2rem;
+  color: $color;
+  background-color: $background-color;
+  @if $type == 'secondary' {
+    border: 1px solid hsl($clr-saffron-mango);
   }
 }

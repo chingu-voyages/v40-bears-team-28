@@ -1,8 +1,10 @@
-// I don't know how to otherwise get access to variable, importing main.scss in index.tsx is not working :(
-@import '../../../../styles/variables';
-
+/*colors */
+/* font sizes */
+/*  Breakpoints */
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 .contentWrapper {
-  background-color: hsl($clr-aqua-deep);
+  background-color: #004744;
   height: 100%;
   border-radius: 12px;
   display: flex;
@@ -28,20 +30,22 @@
   transform: translateX(-50%);
 }
 
-// this class from swiper component
 .swiper-wrapper {
   align-items: center;
 }
 
-@media screen and (min-width: $lg) {
+@media screen and (min-width: 1024px) {
   .userPageTitle {
     position: absolute;
     top: 30px;
     left: 0;
   }
+
   .swiper {
     width: 100%;
     position: relative;
     right: 5%;
   }
 }
+
+/*# sourceMappingURL=UserLibrary.css.map */

@@ -1,9 +1,11 @@
-// I don't know how to otherwise get access to variable, importing main.scss in index.tsx is not working :(
-@import '../../styles/variables';
-
+/*colors */
+/* font sizes */
+/*  Breakpoints */
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 .mainWrapper {
   min-height: 100vh;
-  background-color: hsl($clr-jet-stream);
+  background-color: #add2c7;
   display: flex;
   flex-direction: column;
 }
@@ -26,15 +28,15 @@
   width: 100%;
   padding: 15px 30px 15px 45px;
   border-radius: 12px;
-  background-color: hsl($clr-white);
-  color: hsl($clr-jet-stream);
-  background-image: url('/assets/images/search-icon.svg');
+  background-color: white;
+  color: #add2c7;
+  background-image: url("/assets/images/search-icon.svg");
   background-repeat: no-repeat;
   background-position: 10px;
 }
 
 .librarySearch::placeholder {
-  color: hsl($clr-jet-stream);
+  color: #add2c7;
 }
 
 .wrapperMain {
@@ -71,10 +73,10 @@
 }
 
 .navigationLink a.active {
-  border-bottom: 5px hsl($clr-saffron-mango) solid;
+  border-bottom: 5px #f9bd62 solid;
 }
 
-@media screen and (min-width: $lg) {
+@media screen and (min-width: 1024px) {
   .mainWrapper {
     flex-direction: row-reverse;
   }
@@ -106,3 +108,5 @@
     flex-direction: column;
   }
 }
+
+/*# sourceMappingURL=Dashboard.css.map */

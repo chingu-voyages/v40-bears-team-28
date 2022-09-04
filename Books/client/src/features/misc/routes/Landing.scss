@@ -1,0 +1,84 @@
+@import '../../../styles/main.scss';
+
+.section-container {
+  padding: 5rem;
+}
+.hero__text {
+  max-width: 45%;
+  & > * {
+    margin: 16px 0;
+  }
+}
+.search-form {
+  display: flex;
+  flex-direction: row;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+.search-input {
+  flex-grow: 2;
+  border: none;
+  background-color: transparent;
+  &:focus {
+    outline: none;
+  }
+}
+.search-btn {
+  display: inline-block;
+  margin: 0 !important;
+}
+
+.overlap {
+  margin: 0 9rem;
+  padding: 6rem 4rem;
+  border-radius: 12px;
+  & > * {
+    margin: 0 2rem 0 -10rem;
+    width: 100%;
+  }
+  & > div {
+    width: 90vw;
+  }
+}
+
+.book-card {
+  margin: 2rem 1rem 0 0;
+  place-items: center;
+  & > img {
+    margin: 0 1.5rem 0 0;
+  }
+}
+
+.book-of-the-week {
+  margin: 3rem 16rem 3rem 9rem;
+  & > div {
+    margin-right: 40%;
+  }
+  & > div > * {
+    margin: 2rem 0;
+  }
+  & > img {
+    margin-right: -10rem;
+  }
+}
+
+.stats {
+  width: 8rem;
+}
+
+@include screen(laptop) {
+  .hero__text {
+    max-width: 100%;
+  }
+  .book-of-the-week {
+    text-align: center;
+    width: 100%;
+    margin: 2rem;
+    & > div {
+      width: 100%;
+    }
+  }
+  .stats {
+    width: 100%;
+  }
+}

@@ -1,13 +1,12 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Dashboard } from './components/Dashboard';
 import AuthContextProvider from './context/auth.context';
-import Landing from './features/misc/routes/Landing';
+import { Landing } from './features/misc/routes/Landing';
 import SearchPage from './features/misc/routes/SearchPage/SearchPage';
 import UserLibrary from './features/misc/routes/UserLibrary/UserLibrary';
 import PrivateRoutes from './hooks/PrivateRouters';
-import { LoginPage, HomePage } from './pages';
+import { LoginPage } from './pages';
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route element={<Dashboard />}>
           <Route element={<PrivateRoutes />}>
-            <Route path="/home" element={<HomePage />} />
             <Route path="/library" element={<UserLibrary />} />
           </Route>
           <Route path="/search" element={<SearchPage />} />
