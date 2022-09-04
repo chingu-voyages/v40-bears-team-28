@@ -2,7 +2,7 @@
 @import '../../../../styles/variables';
 
 .contentWrapper {
-  background-color: $clr-aqua-deep;
+  background-color: hsl($clr-aqua-deep);
   height: 100%;
   border-radius: 12px;
   display: flex;

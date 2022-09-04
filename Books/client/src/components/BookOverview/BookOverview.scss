@@ -15,19 +15,19 @@
 }
 
 .bookTitle {
-  color: $clr-white;
+  color: hsl($clr-white);
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
 .bookAuthors {
-  color: $clr-jet-stream;
+  color: hsl($clr-jet-stream);
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
 .bookLink {
-  color: $clr-saffron-mango;
+  color: hsl($clr-saffron-mango);
 }
 
 .bookImg {
