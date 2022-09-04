@@ -41,30 +41,30 @@ export const Dashboard = () => {
           />
         </header>
         <main className="wrapperMain">
-          <Outlet context={user} />
+          <Outlet />
         </main>
       </div>
       <footer className="wrapperFooter">
         <nav className="wrapperNavigation">
           <li className="navigationLink">
-            <NavLink to={`/users/home/${user.username}`}>
+            <NavLink to={`home`}>
               <HomeIcon />
             </NavLink>
           </li>
           <div className="groupedLinks">
             <li className="navigationLink">
-              <NavLink to={`/users/library/${user.username}`}>
+              <NavLink to={`library`}>
                 <BookListIcon />
               </NavLink>
             </li>
             <li className="navigationLink">
-              <NavLink to={`/users/bookmarks/${user.username}`}>
+              <NavLink to={`bookmarks`}>
                 <BookmarkIcon />
               </NavLink>
             </li>
           </div>
           <li className="navigationLink">
-            <NavLink to={`/users/logout/${user.username}`}>
+            <NavLink to={`logout`}>
               <LogOutIcon />
             </NavLink>
           </li>
