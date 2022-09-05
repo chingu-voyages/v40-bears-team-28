@@ -28,12 +28,15 @@ export default function UserLibrary() {
   const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
+    const controller = new AbortController();
     async function fetchBooks() {
-      const controller = new AbortController();
       const books = await getRecentBooks(controller);
       setBooks(books);
     }
     fetchBooks();
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (
