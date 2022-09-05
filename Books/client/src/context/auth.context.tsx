@@ -36,9 +36,9 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
           navigate("/");
         }
       })
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .catch((error) => {
         setUser({} as AuthUser);
-        console.log(error);
       });
     return () => {
       controller.abort();
