@@ -15,3 +15,13 @@ export async function getBookById({ controller, id }: getBookByIdArgs): Promise<
   const response = await axios.get(`https://www.dbooks.org/api/book/${id}`, config);
   return response.data;
 }
+
+export async function getRecentBooks(controller: AbortController): Promise<Book[]> {
+  const config = {
+    headers: { "Content-Type": "application/json" },
+    signal: controller.signal,
+  };
+
+  const response = await axios.get("https://www.dbooks.org/api/recent", config);
+  return response.data.books;
+}

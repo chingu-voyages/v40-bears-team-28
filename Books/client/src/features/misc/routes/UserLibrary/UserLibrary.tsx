@@ -3,15 +3,10 @@ import { useOutletContext } from "react-router-dom";
 import "./UserLibrary.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { getRecentBooks } from "../../../../api/dbooks.api";
 import { BookOverview } from "../../../../components/BookOverview";
 import { Head } from "../../../../components/Head/Head";
 import useWindowSize from "../../../../hooks/useWindowSize";
-
-type apiResponse = {
-  status: string;
-  books: Book[];
-  total: number;
-};
 
 type Book = {
   authors: string;
@@ -33,8 +28,9 @@ export default function UserLibrary() {
 
   useEffect(() => {
     async function fetchBooks() {
-      const response: apiResponse = await (await fetch("https://www.dbooks.org/api/recent")).json();
-      setBooks(response.books);
+      const controller = new AbortController();
+      const books = await getRecentBooks(controller);
+      setBooks(books);
     }
     fetchBooks();
   }, []);
