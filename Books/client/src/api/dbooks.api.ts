@@ -23,5 +23,9 @@ export async function getRecentBooks(controller: AbortController): Promise<Book[
   };
 
   const response = await axios.get("https://www.dbooks.org/api/recent", config);
-  return response.data.books;
+  const books = response.data.books.map((book: Book) => {
+    book.id = book.id.replace(/[A-Za-z]/, "");
+    return book;
+  });
+  return books;
 }
