@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { AuthUser } from '../../../context/auth.context';
+import { AuthUser } from "../../../context/auth.context";
 
 type AuthUserArgs = {
   user: {
@@ -20,18 +20,18 @@ type NewUserArgs = {
 
 export async function authUser({ user }: AuthUserArgs): Promise<AuthUser> {
   const config = {
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
     withCredentials: true,
   };
-  const response = await axios.post('http://localhost:4000/api/users/auth', { ...user }, config);
+  const response = await axios.post("http://localhost:4000/api/users/auth", { ...user }, config);
   return response.data.data;
 }
 
 export async function createUser({ user }: NewUserArgs): Promise<AuthUser> {
   const config = {
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
     withCredentials: true,
   };
-  const response = await axios.post('http://localhost:4000/api/users', { ...user }, config);
+  const response = await axios.post("http://localhost:4000/api/users", { ...user }, config);
   return response.data.data;
 }

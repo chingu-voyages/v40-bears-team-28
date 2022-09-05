@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import useSignUp from '../hooks/useSignUp';
+import useSignUp from "../hooks/useSignUp";
 
 type SignUpProps = {
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,7 +23,7 @@ function SignUp({ setLogin }: SignUpProps) {
             name="username"
             id="username"
             className={
-              touched.username && errors.username ? 'login-form__input error' : 'login-form__input'
+              touched.username && errors.username ? "login-form__input error" : "login-form__input"
             }
             autoComplete="off"
             value={values.username}
@@ -42,7 +42,7 @@ function SignUp({ setLogin }: SignUpProps) {
             name="email"
             id="email"
             className={
-              touched.email && errors.email ? 'login-form__input error' : 'login-form__input'
+              touched.email && errors.email ? "login-form__input error" : "login-form__input"
             }
             autoComplete="off"
             value={values.email}
@@ -61,7 +61,7 @@ function SignUp({ setLogin }: SignUpProps) {
             name="password"
             id="password"
             className={
-              touched.password && errors.password ? 'login-form__input error' : 'login-form__input'
+              touched.password && errors.password ? "login-form__input error" : "login-form__input"
             }
             autoComplete="off"
             value={values.password}
@@ -81,8 +81,8 @@ function SignUp({ setLogin }: SignUpProps) {
             id="confirm-password"
             className={
               touched.confirmPassword && errors.confirmPassword
-                ? 'login-form__input error'
-                : 'login-form__input'
+                ? "login-form__input error"
+                : "login-form__input"
             }
             autoComplete="off"
             value={values.confirmPassword}

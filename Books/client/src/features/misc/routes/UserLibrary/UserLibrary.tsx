@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
-import './UserLibrary.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import "./UserLibrary.scss";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { BookOverview } from '../../../../components/BookOverview';
-import { Head } from '../../../../components/Head/Head';
-import useWindowSize from '../../../../hooks/useWindowSize';
+import { BookOverview } from "../../../../components/BookOverview";
+import { Head } from "../../../../components/Head/Head";
+import useWindowSize from "../../../../hooks/useWindowSize";
 
 type apiResponse = {
   status: string;
@@ -33,7 +33,7 @@ export default function UserLibrary() {
 
   useEffect(() => {
     async function fetchBooks() {
-      const response: apiResponse = await (await fetch('https://www.dbooks.org/api/recent')).json();
+      const response: apiResponse = await (await fetch("https://www.dbooks.org/api/recent")).json();
       setBooks(response.books);
     }
     fetchBooks();

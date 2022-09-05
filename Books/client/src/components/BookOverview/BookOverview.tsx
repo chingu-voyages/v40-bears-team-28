@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import './BookOverview.scss';
+import { Link } from "react-router-dom";
+import "./BookOverview.scss";
 
 type BookOverviewProps = {
   image: string;

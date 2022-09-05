@@ -1,7 +1,7 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { createContext, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import { getUser } from '../api/users.api';
+import { getUser } from "../api/users.api";
 
 export type AuthUser = {
   id: string;
@@ -33,7 +33,7 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
           navigate(location.pathname);
         } else {
           setUser({} as AuthUser);
-          navigate('/');
+          navigate("/");
         }
       })
       .catch((error) => {
