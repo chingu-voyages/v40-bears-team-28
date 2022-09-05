@@ -1,10 +1,10 @@
-import { FormikProps, useFormik } from 'formik';
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
+import { FormikProps, useFormik } from "formik";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
-import { AuthContext, AuthUser } from '../../../context/auth.context';
-import { authUser } from '../api/users.api';
+import { AuthContext, AuthUser } from "../../../context/auth.context";
+import { authUser } from "../api/users.api";
 
 type UseSignInReturn = {
   formik: FormikProps<{ email: string; password: string }>;
@@ -19,23 +19,23 @@ type UseSignInArgs = {
 function useSignIn({ setLogin }: UseSignInArgs): UseSignInReturn {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [errorMsg, setErrorMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState("");
   const formik = useFormik({
-    initialValues: { email: '', password: '' },
+    initialValues: { email: "", password: "" },
     validationSchema: Yup.object({
-      email: Yup.string().email().required('Email is required'),
-      password: Yup.string().min(8, 'Password is too short').required('Password is required'),
+      email: Yup.string().email().required("Email is required"),
+      password: Yup.string().min(8, "Password is too short").required("Password is required"),
     }),
     onSubmit: (values, actions) => {
-      setErrorMsg('');
+      setErrorMsg("");
       authUser({ user: values })
         .then((data) => {
           if (data.token) {
             setUser(data);
-            navigate('/home');
+            navigate("/home");
           } else {
             setUser({} as AuthUser);
-            navigate('/login');
+            navigate("/login");
           }
         })
         .catch((error) => {

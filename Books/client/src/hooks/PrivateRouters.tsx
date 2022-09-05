@@ -1,7 +1,7 @@
-import { useContext } from 'react';
-import { Outlet, Navigate } from 'react-router-dom';
+import { useContext } from "react";
+import { Outlet, Navigate } from "react-router-dom";
 
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from "../context/auth.context";
 
 function useAuth() {
   const { user } = useContext(AuthContext);

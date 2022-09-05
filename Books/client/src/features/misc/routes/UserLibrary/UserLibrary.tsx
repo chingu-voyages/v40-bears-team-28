@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
-import './UserLibrary.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import "./UserLibrary.scss";
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { BookOverview } from '../../../../components/BookOverview';
-import { Head } from '../../../../components/Head/Head';
-import useWindowSize from '../../../../hooks/useWindowSize';
-
-type apiResponse = {
-  status: string;
-  books: Book[];
-  total: number;
-};
+import { getRecentBooks } from "../../../../api/dbooks.api";
+import { BookOverview } from "../../../../components/BookOverview";
+import { Head } from "../../../../components/Head/Head";
+import useWindowSize from "../../../../hooks/useWindowSize";
 
 type Book = {
   authors: string;
@@ -32,18 +28,29 @@ export default function UserLibrary() {
   const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
+    const controller = new AbortController();
     async function fetchBooks() {
-      const response: apiResponse = await (await fetch('https://www.dbooks.org/api/recent')).json();
-      setBooks(response.books);
+      const books = await getRecentBooks(controller);
+      setBooks(books);
     }
     fetchBooks();
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (
     <div className="contentWrapper">
       <Head description={`${user.username} library`} title={`${user.username}`} />
       <h1 className="userPageTitle">Library</h1>
-      <Swiper slidesPerView={width > 760 ? 2 : 1} simulateTouch={true} className="swiper">
+      <Swiper
+        slidesPerView={width > 760 ? 2 : 1}
+        simulateTouch={true}
+        grabCursor={true}
+        className="swiper"
+        modules={[Navigation]}
+        navigation={true}
+      >
         {books.map(({ title, image, id, authors }: Book) => (
           <SwiperSlide className="swiperSlide" key={id}>
             <BookOverview title={title} image={image} authors={authors} id={id} key={id} />

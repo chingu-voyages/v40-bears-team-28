@@ -1,6 +1,6 @@
-import digitalMinimalism from '../../../assets/images/digital_minimalism.webp';
-import readingNook from '../../../assets/images/readingNook.svg';
-import './Landing.scss';
+import digitalMinimalism from "../../../assets/images/digital_minimalism.webp";
+import readingNook from "../../../assets/images/readingNook.svg";
+import "./Landing.scss";
 
 export const Landing = () => {
   return (

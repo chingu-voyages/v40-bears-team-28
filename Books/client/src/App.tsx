@@ -1,11 +1,11 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import { Dashboard } from './components/Dashboard';
-import AuthContextProvider from './context/auth.context';
-import { Landing } from './features/misc/routes/Landing';
-import UserLibrary from './features/misc/routes/UserLibrary/UserLibrary';
-import PrivateRoutes from './hooks/PrivateRouters';
-import { LoginPage } from './pages';
+import { Dashboard } from "./components/Dashboard";
+import AuthContextProvider from "./context/auth.context";
+import { Landing } from "./features/misc/routes/Landing";
+import UserLibrary from "./features/misc/routes/UserLibrary/UserLibrary";
+import PrivateRoutes from "./hooks/PrivateRouters";
+import { LoginPage } from "./pages";
 
 function App() {
   return (

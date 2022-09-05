@@ -35,9 +35,11 @@
 
 @media screen and (min-width: $lg) {
   .userPageTitle {
-    position: absolute;
-    top: 30px;
-    left: 0;
+    margin-right: auto;
+    position: relative;
+    left: -80px;
+    top: 0;
+    transform: translate(0);
   }
   .swiper {
     width: 100%;
