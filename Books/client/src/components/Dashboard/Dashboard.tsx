@@ -9,8 +9,8 @@ import { ReactComponent as LogOutIcon } from "../../assets/images/log-out-icon.s
 import useDebounce from "../../hooks/useDebounce";
 
 export const Dashboard = () => {
-  const [input, setInput] = useState("");
-  const debouncedInput = useDebounce(input, 600);
+  const [searchInput, setSearchInput] = useState("");
+  const debouncedInput = useDebounce(searchInput, 600);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,8 +25,8 @@ export const Dashboard = () => {
             className="librarySearch"
             placeholder="Find your next favorite book"
             type={"search"}
-            value={input}
-            onChange={(e) => setInput(e.currentTarget.value)}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.currentTarget.value)}
           />
         </header>
         <main className="wrapperMain">
