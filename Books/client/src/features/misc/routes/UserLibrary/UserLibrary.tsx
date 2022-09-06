@@ -3,10 +3,10 @@ import "./UserLibrary.scss";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { AuthContext } from "../../../..//context/auth.context";
 import { getRecentBooks } from "../../../../api/dbooks.api";
 import { BookOverview } from "../../../../components/BookOverview";
 import { Head } from "../../../../components/Head/Head";
+import { AuthContext } from "../../../../context/auth.context";
 import useWindowSize from "../../../../hooks/useWindowSize";
 
 type Book = {
