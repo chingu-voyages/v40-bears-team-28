@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 function Login() {
   // To show sign in page if login is true and show sign up page if login is false

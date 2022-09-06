@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import './BookOverview.scss';
+import { Link } from "react-router-dom";
+import "./BookOverview.scss";
 
 type BookOverviewProps = {
   image: string;
@@ -9,7 +9,7 @@ type BookOverviewProps = {
 };
 
 const decodeHtml = (text: string) => {
-  const textarea = document.createElement('textarea');
+  const textarea = document.createElement("textarea");
   textarea.innerHTML = text;
   return textarea.innerText;
 };

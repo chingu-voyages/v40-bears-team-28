@@ -1,11 +1,11 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 type HeadProps = {
   title?: string;
   description?: string;
 };
 
-export const Head = ({ title = '', description = '' }: HeadProps) => {
+export const Head = ({ title = "", description = "" }: HeadProps) => {
   return (
     <Helmet title={title ? `${title} | BookHut` : undefined} defaultTitle="BookHut">
       <meta name="description" content={description} />

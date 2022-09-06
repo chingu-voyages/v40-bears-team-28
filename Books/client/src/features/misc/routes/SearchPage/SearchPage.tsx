@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import './SearchPage.scss';
-import { useSearchParams } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect, useState } from "react";
+import "./SearchPage.scss";
+import { useSearchParams } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { BookOverview } from '../../../../components/BookOverview';
-import { Head } from '../../../../components/Head/Head';
-import useWindowSize from '../../../../hooks/useWindowSize';
+import { BookOverview } from "../../../../components/BookOverview";
+import { Head } from "../../../../components/Head/Head";
+import useWindowSize from "../../../../hooks/useWindowSize";
 
 type apiResponse = {
   status: string;
@@ -26,7 +26,7 @@ export default function SearchPage() {
   const { width } = useWindowSize();
   const [books, setBooks] = useState<Book[]>([]);
   const [searchParams] = useSearchParams();
-  const query = searchParams.get('q') || '';
+  const query = searchParams.get("q") || "";
 
   useEffect(() => {
     async function fetchBooks() {
@@ -42,7 +42,7 @@ export default function SearchPage() {
     <div className="contentWrapper">
       <Head description={`Search`} title={`Search`} />
       <h1 className="searchPageTitle">
-        {query ? `You searched for "${query}"` : 'What are you looking for?'}
+        {query ? `You searched for "${query}"` : "What are you looking for?"}
       </h1>
       <Swiper slidesPerView={width > 760 ? 2 : 1} simulateTouch={true} className="swiper">
         {books.map(({ title, image, id, authors }: Book) => (

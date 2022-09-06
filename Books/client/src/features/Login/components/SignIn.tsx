@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import useSignIn from '../hooks/useSignIn';
+import useSignIn from "../hooks/useSignIn";
 
 type SignInProps = {
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,7 +23,7 @@ function SignIn({ setLogin }: SignInProps) {
             name="email"
             id="email"
             className={
-              touched.email && errors.email ? 'login-form__input error' : 'login-form__input'
+              touched.email && errors.email ? "login-form__input error" : "login-form__input"
             }
             autoComplete="off"
             value={values.email}
@@ -42,7 +42,7 @@ function SignIn({ setLogin }: SignInProps) {
             name="password"
             id="password"
             className={
-              touched.password && errors.password ? 'login-form__input error' : 'login-form__input'
+              touched.password && errors.password ? "login-form__input error" : "login-form__input"
             }
             autoComplete="off"
             value={values.password}
