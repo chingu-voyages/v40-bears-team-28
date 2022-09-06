@@ -41,7 +41,7 @@ export default function SearchPage() {
   return (
     <div className="contentWrapper">
       <Head description={`Search`} title={`Search`} />
-      <h1 className="searchPageTitle">
+      <h1 className="searchPageTitle text-center">
         {query ? `You searched for "${query}"` : "What are you looking for?"}
       </h1>
       <Swiper slidesPerView={width > 760 ? 2 : 1} simulateTouch={true} className="swiper">
