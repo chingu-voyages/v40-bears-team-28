@@ -7,16 +7,19 @@ import { ReactComponent as BookmarkIcon } from "../../assets/images/bookmark-ico
 import { ReactComponent as HomeIcon } from "../../assets/images/home-icon.svg";
 import { ReactComponent as LogOutIcon } from "../../assets/images/log-out-icon.svg";
 import useDebounce from "../../hooks/useDebounce";
+import useLogout from "../../hooks/useLogout";
 
 export const Dashboard = () => {
   const [searchInput, setSearchInput] = useState("");
   const debouncedInput = useDebounce(searchInput, 600);
+  const { logoutUser } = useLogout();
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate(`/search?q=${debouncedInput}`);
+    if (searchInput) {
+      navigate(`/search?q=${debouncedInput}`);
+    }
   }, [debouncedInput]);
-
   return (
     <div className="mainWrapper">
       <div className="secondaryWrapper">
@@ -53,9 +56,10 @@ export const Dashboard = () => {
             </li>
           </div>
           <li className="navigationLink">
-            <NavLink to={`logout`}>
+            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
+            <div onClick={logoutUser} role="button">
               <LogOutIcon />
-            </NavLink>
+            </div>
           </li>
         </nav>
       </footer>
