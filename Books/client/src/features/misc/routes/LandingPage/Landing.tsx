@@ -1,13 +1,31 @@
-import digitalMinimalism from "../../../assets/images/digital_minimalism.webp";
-import readingNook from "../../../assets/images/readingNook.svg";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+import digitalMinimalism from "../../../../assets/images/digital_minimalism.webp";
+import readingNook from "../../../../assets/images/readingNook.svg";
+
 import "./Landing.scss";
 
+import { AuthContext } from "../../../../context/auth.context";
+
 export const Landing = () => {
+  const { setLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  function loginUser(event: React.MouseEvent<HTMLButtonElement>, order: boolean) {
+    setLogin(order);
+    navigate("/login");
+  }
+
   return (
     <>
       <nav className="flex justify-end">
-        <button className="secondary-btn">Sign In</button>
-        <button className="primary-btn">Sign Up</button>
+        <button className="secondary-btn" onClick={(event) => loginUser(event, true)}>
+          Sign In
+        </button>
+        <button className="primary-btn" onClick={(event) => loginUser(event, false)}>
+          Sign Up
+        </button>
       </nav>
       <section className="flex justify-between section-container">
         <div className="hero__text">
@@ -17,7 +35,10 @@ export const Landing = () => {
             voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
             occaecati cupiditate non provident
           </p>
-          <form action="" className="search-form bg-jungle-mist">
+          <form
+            action="@/features/misc/routes/LandingPage/Landing"
+            className="search-form bg-jungle-mist"
+          >
             <input type="search" name="search" id="" className="search-input " />
             <button type="submit" className="primary-btn search-btn">
               Search for books
@@ -76,8 +97,12 @@ export const Landing = () => {
         <h3 className="heading h2">What are you waiting for?</h3>
         <p className="text-jungle-mist h4">Join the fastest growing community of bookworms</p>
         <div className="flex justify-center">
-          <button className="secondary-btn">Sign In</button>
-          <button className="primary-btn">Sign Up</button>
+          <button className="secondary-btn" onClick={(event) => loginUser(event, true)}>
+            Sign In
+          </button>
+          <button className="primary-btn" onClick={(event) => loginUser(event, false)}>
+            Sign Up
+          </button>
         </div>
       </footer>
     </>
