@@ -81,7 +81,9 @@ export function BookPage() {
       <button onClick={handleSavingBook} className={bookmark}>
         Save
       </button>
-      <a href={`${book.url}/pdf/`}>Read</a>
+      <a href={`${book.url}/pdf/`} target="_blank" rel="noreferrer">
+        Read
+      </a>
       <a href={`${book.download}`}>Download</a>
     </div>
   ) : (
