@@ -8,28 +8,24 @@ import { BookOverview } from "../../../../components/BookOverview";
 import { Head } from "../../../../components/Head/Head";
 import { AuthContext } from "../../../../context/auth.context";
 import useWindowSize from "../../../../hooks/useWindowSize";
+import { Book } from "../Types";
 
-type Book = {
-  authors: string;
-  id: string;
-  image: string;
-  subtitle: string;
-  title: string;
-  url: string;
-};
-
-export default function UserLibrary() {
+export function UserLibrary() {
   const { user } = useContext(AuthContext);
   const { width } = useWindowSize();
   const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
     const controller = new AbortController();
+
     async function fetchBooks() {
       const books = await getRecentBooks(controller);
       setBooks(books);
     }
-    fetchBooks();
+
+    fetchBooks().catch(() => {
+      setBooks([]);
+    });
     return () => {
       controller.abort();
     };
@@ -38,7 +34,7 @@ export default function UserLibrary() {
   return (
     <div className="contentWrapper">
       <Head description={`${user.username} library`} title={`${user.username}`} />
-      <h1 className="userPageTitle">Library</h1>
+      <h1 className="userPageTitle">Recent Books</h1>
       <Swiper
         slidesPerView={width > 760 ? 2 : 1}
         simulateTouch={true}
