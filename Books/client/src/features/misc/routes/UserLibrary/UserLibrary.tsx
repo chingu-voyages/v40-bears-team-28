@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import "./UserLibrary.scss";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { getRecentBooks } from "../../../../api/dbooks.api";
 import { BookOverview } from "../../../../components/BookOverview";
 import { Head } from "../../../../components/Head/Head";
+import { AuthContext } from "../../../../context/auth.context";
 import useWindowSize from "../../../../hooks/useWindowSize";
 
 type Book = {
@@ -18,12 +18,8 @@ type Book = {
   url: string;
 };
 
-type User = {
-  username: string;
-};
-
 export default function UserLibrary() {
-  const user = useOutletContext<User>();
+  const { user } = useContext(AuthContext);
   const { width } = useWindowSize();
   const [books, setBooks] = useState<Book[]>([]);
 

@@ -8,13 +8,19 @@ type BookOverviewProps = {
   id: string;
 };
 
+const decodeHtml = (text: string) => {
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = text;
+  return textarea.innerText;
+};
+
 export const BookOverview = ({ image, title, authors, id }: BookOverviewProps) => {
   return (
     <div className="bookWrapper">
-      <img src={image} className="bookImg" alt={title} />
+      <img src={image} className="bookImg" alt={decodeHtml(title)} />
       <div className="bookText">
-        <h2 className="bookTitle">{title}</h2>
-        <span className="bookAuthors">{authors}</span>
+        <h2 className="bookTitle">{decodeHtml(title)}</h2>
+        <span className="bookAuthors">{decodeHtml(authors)}</span>
         <Link className="bookLink" to={`/book/${id}`}>
           Continue reading
         </Link>
