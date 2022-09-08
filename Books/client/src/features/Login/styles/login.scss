@@ -1,0 +1,160 @@
+@import "../../../styles/variables";
+
+.auth-page {
+  min-height: 100vh;
+  position: relative;
+  color: hsl($clr-black-pearl);
+  z-index: 0;
+  .background-square {
+    background-color: hsl($clr-jet-stream);
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    z-index: -1;
+  }
+}
+.login-form-container {
+  min-height: 100vh;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: hsl($clr-black-pearl);
+  }
+
+  figure {
+    text-align: right;
+    blockquote {
+      margin: 1rem 0 2rem 0;
+      font-size: $fs-800;
+      font-family: $ff-cardo;
+      font-style: italic;
+      svg {
+        display: none;
+      }
+    }
+    figcaption {
+      font-size: $fs-400;
+    }
+  }
+  padding: $fs-600;
+}
+
+.login-form {
+  background-color: hsl($clr-white);
+  border-radius: 12px;
+  padding-top: 1rem;
+  margin-top: 1rem;
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0.5rem 1rem;
+  }
+
+  &__input {
+    border: 1px solid hsl($clr-jet-stream);
+    border-radius: 12px;
+    padding: 1rem;
+    &::placeholder {
+    }
+
+    &.error {
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+    }
+  }
+
+  &__error-msg {
+  }
+
+  &__submit {
+    width: 100%;
+    background-color: hsl($clr-saffron-mango);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding: 1rem 0;
+    cursor: pointer;
+    font-size: $fs-600;
+    &:hover {
+    }
+  }
+
+  &__links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    button {
+      background-color: transparent;
+      color: hsl($clr-saffron-mango);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.return-to-login {
+}
+
+@media screen and (min-width: $md) {
+  .auth-page {
+    .background-square {
+      background-color: hsl($clr-jet-stream);
+      position: absolute;
+      height: 100%;
+      width: 60%;
+      clip-path: polygon(0 0, 100% 0, 65% 100%, 0% 100%);
+    }
+  }
+  .login-form-container {
+    display: flex;
+    gap: 40px;
+    padding: 2.5rem;
+
+    .main-wrapper {
+      flex: 0.4 0 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .secondary-wrapper {
+      flex: 0.6 0 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      text-align: left;
+      blockquote {
+        margin: auto 0;
+        svg {
+          display: block;
+        }
+      }
+      figcaption {
+        margin-top: auto;
+      }
+    }
+  }
+
+  .login-form {
+    width: 80%;
+    margin: 0 auto;
+
+    &__links {
+      margin: 0 auto;
+    }
+  }
+}
