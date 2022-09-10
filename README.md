@@ -71,7 +71,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Having trouble finding time to read your favorite book? Books Hut is a free, big library with a wide range of books, from Philosophy to the Computer Science! All you have to do is create your account, add books to your personal library, and start reading! For every book you read you can earn points and you will also get access to exclusive content.
+Having trouble finding time to read your favorite book? Books Hut is a free, big library with a wide range of books, from Philosophy to the Computer Science! All you have to do is create your account, add books to your personal library, and start reading!
 
 Reading a book from beginning to end is not always possible with work, family, and other commitments. Books Hut allows you to read books in between your busy schedule. Why rush through a good book? Read it at your own pace and store them in your library for future reference. With a wide-range of books, our library has everything you're looking for.
 
