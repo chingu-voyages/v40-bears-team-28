@@ -17,6 +17,8 @@ type AuthContextProviderProps = {
 type UserContextType = {
   user: AuthUser;
   setUser: React.Dispatch<React.SetStateAction<AuthUser>>;
+  login: boolean;
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export const AuthContext = createContext<UserContextType>({} as UserContextType);
 
@@ -24,6 +26,7 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const [user, setUser] = useState<AuthUser>({} as AuthUser);
+  const [login, setLogin] = useState(true);
   useEffect(() => {
     const controller = new AbortController();
     getUser({ controller })
@@ -44,7 +47,11 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
       controller.abort();
     };
   }, []);
-  return <AuthContext.Provider value={{ user, setUser }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ user, setUser, login, setLogin }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export default AuthContextProvider;

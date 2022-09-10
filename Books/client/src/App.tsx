@@ -2,11 +2,17 @@ import { Route, Routes } from "react-router-dom";
 
 import { Dashboard } from "./components/Dashboard";
 import AuthContextProvider from "./context/auth.context";
-import { Landing } from "./features/misc/routes/Landing";
-import SearchPage from "./features/misc/routes/SearchPage/SearchPage";
-import UserLibrary from "./features/misc/routes/UserLibrary/UserLibrary";
+import LoginPage from "./features/Login";
+import {
+  Landing,
+  LibraryPage,
+  SearchPage,
+  BookmarkPage,
+  UserLibrary,
+  NotFound,
+  BookPage,
+} from "./features/misc/routes";
 import PrivateRoutes from "./hooks/PrivateRouters";
-import { LoginPage } from "./pages";
 
 function App() {
   return (
@@ -15,11 +21,15 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<LoginPage />} />
         <Route element={<Dashboard />}>
+          <Route path="/book/:id" element={<BookPage />} />
           <Route element={<PrivateRoutes />}>
-            <Route path="/library" element={<UserLibrary />} />
+            <Route path="/home" element={<UserLibrary />} />
+            <Route path="/library" element={<LibraryPage />} />
+            <Route path="/bookmarks" element={<BookmarkPage />} />
           </Route>
           <Route path="/search" element={<SearchPage />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AuthContextProvider>
   );

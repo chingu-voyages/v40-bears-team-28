@@ -1,29 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./UserLibrary.scss";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { getRecentBooks } from "../../../../api/dbooks.api";
+import { getRandomCollection } from "../../../../api/dbooks.api";
 import { BookOverview } from "../../../../components/BookOverview";
 import { Head } from "../../../../components/Head/Head";
 import { AuthContext } from "../../../../context/auth.context";
 import useWindowSize from "../../../../hooks/useWindowSize";
 import { Book } from "../Types";
 
-export function UserLibrary() {
+export function LibraryPage() {
   const { user } = useContext(AuthContext);
-  const { width } = useWindowSize();
   const [books, setBooks] = useState<Book[]>([]);
+  const { width } = useWindowSize();
 
   useEffect(() => {
     const controller = new AbortController();
 
-    async function fetchBooks() {
-      const books = await getRecentBooks(controller);
+    async function fetchBook() {
+      const books = await getRandomCollection(controller);
       setBooks(books);
     }
 
-    fetchBooks().catch(() => {
+    fetchBook().catch(() => {
       setBooks([]);
     });
     return () => {
@@ -34,7 +33,7 @@ export function UserLibrary() {
   return (
     <div className="contentWrapper">
       <Head description={`${user.username} library`} title={`${user.username}`} />
-      <h1 className="userPageTitle">Recent Books</h1>
+      <h1 className="userPageTitle">Library</h1>
       <Swiper
         slidesPerView={width > 760 ? 2 : 1}
         simulateTouch={true}

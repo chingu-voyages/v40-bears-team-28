@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { BookOverview } from "../../../../components/BookOverview";
 import { Head } from "../../../../components/Head/Head";
 import useWindowSize from "../../../../hooks/useWindowSize";
+import { Book } from "../Types";
 
 type apiResponse = {
   status: string;
@@ -13,16 +14,7 @@ type apiResponse = {
   total: number;
 };
 
-type Book = {
-  authors: string;
-  id: string;
-  image: string;
-  subtitle: string;
-  title: string;
-  url: string;
-};
-
-export default function SearchPage() {
+export function SearchPage() {
   const { width } = useWindowSize();
   const [books, setBooks] = useState<Book[]>([]);
   const [searchParams] = useSearchParams();
@@ -35,7 +27,9 @@ export default function SearchPage() {
       ).json();
       setBooks(response.books || []);
     }
-    fetchBooks();
+    fetchBooks().catch(() => {
+      setBooks([]);
+    });
   }, [query]);
 
   return (
