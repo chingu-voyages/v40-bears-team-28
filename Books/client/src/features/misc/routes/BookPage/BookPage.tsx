@@ -20,7 +20,12 @@ export function BookPage() {
   useEffect(() => {
     const controller = new AbortController();
     if (id) {
-      getBookById({ controller, bookId: id, userId: user.id, token: user.token })
+      getBookById({
+        controller,
+        bookId: id.replace(/[A-Za-z]/, ""),
+        userId: user.id,
+        token: user.token,
+      })
         .then((data) => {
           setBook(data.book);
           if (data.saved?.savedBook) {
@@ -52,13 +57,16 @@ export function BookPage() {
           }
         });
     } else if (isBookSaved && toggle === false) {
-      deleteSavedBook({ controller, userId: user.id, token: user.token, bookId: book.id }).then(
-        (data) => {
-          setBookmark("not-saved");
-          setErrorMsg("");
-          setIsBookSaved(false);
-        }
-      );
+      deleteSavedBook({
+        controller,
+        userId: user.id,
+        token: user.token,
+        bookId: book.id.replace(/[A-Za-z]/, ""),
+      }).then((data) => {
+        setBookmark("not-saved");
+        setErrorMsg("");
+        setIsBookSaved(false);
+      });
     }
     return () => {
       controller.abort();
