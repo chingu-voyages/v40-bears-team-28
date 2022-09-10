@@ -1,20 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import digitalMinimalism from "../../../../assets/images/digital_minimalism.webp";
+import Algebra from "../../../../assets/images/Algebra.jpg";
+import AzureMachineLearning from "../../../../assets/images/Azure-Machine-Learning.jpg";
+import BecomingAScholar from "../../../../assets/images/Becoming-a-Scholar.jpg";
+import MongoDB3Succinctly from "../../../../assets/images/MongoDB-3-Succinctly.jpg";
 import readingNook from "../../../../assets/images/readingNook.svg";
-
 import "./Landing.scss";
-
 import { AuthContext } from "../../../../context/auth.context";
 
 export const Landing = () => {
   const { setLogin } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [searchInput, setSearchInput] = useState("");
 
   function loginUser(event: React.MouseEvent<HTMLButtonElement>, order: boolean) {
     setLogin(order);
     navigate("/login");
+  }
+
+  function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    navigate(`/search?q=${searchInput}`);
   }
 
   return (
@@ -31,16 +38,23 @@ export const Landing = () => {
         <div className="hero__text">
           <h1 className="h1 heading">Find your next best book and read it all day.</h1>
           <p className="paragraph text-jungle-mist">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-            voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-            occaecati cupiditate non provident
+            Having trouble finding time to read your favorite book? Books Hut is a free, big library
+            with a wide range of books, from Philosophy to the Computer Science! All you have to do
+            is create your account, add books to your personal library, and start reading!
           </p>
           <form
             action="@/features/misc/routes/LandingPage/Landing"
             className="search-form bg-jungle-mist"
           >
-            <input type="search" name="search" id="" className="search-input " />
-            <button type="submit" className="primary-btn search-btn">
+            <input
+              type="search"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.currentTarget.value)}
+              name="search"
+              id=""
+              className="search-input "
+            />
+            <button type="button" onClick={handleClick} className="primary-btn search-btn">
               Search for books
             </button>
           </form>
@@ -51,24 +65,24 @@ export const Landing = () => {
         <h3 className="heading h3">Popular Books Right Now</h3>
         <div className="flex">
           <div className="book-card flex justify-between">
-            <img src={digitalMinimalism} alt="" />
+            <img src={MongoDB3Succinctly} alt="" />
             <div>
-              <h4 className="heading h4">Digital Minimalism</h4>
-              <p>Cal Newport</p>
+              <h4 className="heading h4">MongoDB 3 Succinctly</h4>
+              <p>Zoran Maksimovic</p>
             </div>
           </div>
           <div className="book-card flex justify-between">
-            <img src={digitalMinimalism} alt="" />
+            <img src={BecomingAScholar} alt="" />
             <div>
-              <h4 className="heading h4">Digital Minimalism</h4>
-              <p>Cal Newport</p>
+              <h4 className="heading h4">Becoming a Scholar</h4>
+              <p>Maria Savva, Lynn P. Nygaard</p>
             </div>
           </div>
           <div className="book-card flex justify-between">
-            <img src={digitalMinimalism} alt="" />
+            <img src={AzureMachineLearning} alt="" />
             <div>
-              <h4 className="heading  h4">Digital Minimalism</h4>
-              <p className="paragraph">Cal Newport</p>
+              <h4 className="heading  h4">Azure Machine Learning</h4>
+              <p className="paragraph">Jeff Barnes</p>
             </div>
           </div>
         </div>
@@ -77,21 +91,23 @@ export const Landing = () => {
         <div>
           <h3 className="heading h3">Book of the Week</h3>
           <p className="text-jungle-mist">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+            This open book is an introduction to algebra for undergraduates who are interested in
+            careers which require a strong background in mathematics. It will benefit students
+            studying computer science and physical sciences, who plan to teach mathematics in
+            schools, or to work in industry or finance.
           </p>
           <div className="flex justify-between stats">
             <div className="text-center">
-              <p className="heading h4">273</p>
+              <p className="heading h4">419</p>
               <p className="text-jungle-mist paragraph">Pages</p>
             </div>
-            <div className="text-center">
+            {/* <div className="text-center">
               <p className="heading h4">4.5</p>
               <p className="text-jungle-mist paragraph">Stars</p>
-            </div>
+            </div> */}
           </div>
         </div>
-        <img src={digitalMinimalism} alt="" />
+        <img src={Algebra} alt="" />
       </section>
       <footer className="text-center">
         <h3 className="heading h2">What are you waiting for?</h3>
