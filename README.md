@@ -110,22 +110,7 @@ _Below is an example of how you can install and setup our app._
    ```sh
    npm install
    ```
-3. Create PostgreSQL database with user and connect them through .env 
-   ```js
-    PORT=4000
-    ENV=dev
-    POSTGRES_HOST=127.0.0.1
-    POSTGRES_PORT=5432
-    POSTGRES_DB=books
-    POSTGRES_TEST_DB=books_test
-    POSTGRES_USERNAME=YOUR-DATABASE-USERNAME
-    POSTGRES_PASSWORD=YOUR-DATABASE-PASSWORD
-    BCRYPT_PASSWORD=YOUR-BCRYPT-PASSWORD
-    SALT_ROUNDS=10
-    AUTH_SECRET=YOUR-SECRET
-    RESET_PASSWORD_SECRET=YOUR-SECRET
-    COOKIE_SECRET=YOUR-SECRET
-   ```
+3. Go to docs/REQUIREMENTS.md and follow instructions about creating database
 4. Start server
    ```sh
    cd Books/server
