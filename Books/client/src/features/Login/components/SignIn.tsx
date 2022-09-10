@@ -27,8 +27,9 @@ function SignIn({ setLogin }: SignInProps) {
         </figure>
       </div>
       <div className="secondary-wrapper">
-        {errorMsg && <p className="login-form__error-msg">{errorMsg}</p>}
         <form onSubmit={handleSubmit} className="login-form">
+          <h2 className="text-center">Sign In</h2>
+          {errorMsg && <p className="login-form__error-msg text-center">{errorMsg}</p>}
           <label className="login-form__label">
             E-mail address
             <input
@@ -69,7 +70,7 @@ function SignIn({ setLogin }: SignInProps) {
         </form>
         <div className="login-form__links">
           <button onClick={register}>Register</button>
-          <button>Forgot Password?</button>
+          {/* <button>Forgot Password?</button> */}
         </div>
       </div>
     </div>

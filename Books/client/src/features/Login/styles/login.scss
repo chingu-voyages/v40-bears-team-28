@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin: 0.5rem 1rem;
+    margin: 0.5rem 2rem;
   }
 
   &__input {
@@ -62,6 +62,7 @@
     }
 
     &.error {
+      color: hsl(0, 100%, 70%);
     }
 
     &:-webkit-autofill,
@@ -72,6 +73,7 @@
   }
 
   &__error-msg {
+    color: hsl(0, 100%, 70%);
   }
 
   &__submit {

@@ -27,8 +27,9 @@ function SignUp({ setLogin }: SignUpProps) {
         </figure>
       </div>
       <div className="secondary-wrapper">
-        <p className="login-form__error-msg">{errorMsg}</p>
         <form onSubmit={handleSubmit} className="login-form">
+          <h2 className="text-center">Sign Up</h2>
+          {errorMsg && <p className="login-form__error-msg text-center">{errorMsg}</p>}
           <label htmlFor="username" className="login-form__label">
             Username
             <input
