@@ -22,6 +22,12 @@ type DeleteBookArgs = {
   bookId: string;
 };
 
+type GetSavedBooksForUserArgs = {
+  controller: AbortController;
+  userId: string;
+  token: string;
+};
+
 export async function saveBook({
   controller,
   book,
@@ -56,5 +62,19 @@ export async function deleteSavedBook({
     `http://localhost:4000/api/user/books/${userId}/${bookId}`,
     config
   );
+  return response.data.data;
+}
+
+export async function getSavedBooksForUser({
+  controller,
+  userId,
+  token,
+}: GetSavedBooksForUserArgs): Promise<Book[]> {
+  const config = {
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    withCredentials: true,
+    signal: controller.signal,
+  };
+  const response = await axios.get(`http://localhost:4000/api/user/books/${userId}`, config);
   return response.data.data;
 }
