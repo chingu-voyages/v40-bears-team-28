@@ -17,7 +17,10 @@ export async function getUser({ controller }: GetUserArgs): Promise<AuthUser> {
     withCredentials: true,
     signal: controller.signal,
   };
-  const response = await axios.get("http://localhost:4000/api/users/auth/session", config);
+  const response = await axios.get(
+    "https://books-fkzm.onrender.com/api/users/auth/session",
+    config
+  );
   return response.data.data;
 }
 
@@ -30,6 +33,6 @@ export async function deleteUserSession({
     withCredentials: true,
     signal: controller.signal,
   };
-  const response = await axios.get("http://localhost:4000/api/users/auth/logout", config);
+  const response = await axios.get("https://books-fkzm.onrender.com/api/users/auth/logout", config);
   return response.data;
 }

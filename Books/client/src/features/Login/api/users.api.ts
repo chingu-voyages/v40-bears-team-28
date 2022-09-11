@@ -23,7 +23,11 @@ export async function authUser({ user }: AuthUserArgs): Promise<AuthUser> {
     headers: { "Content-Type": "application/json" },
     withCredentials: true,
   };
-  const response = await axios.post("http://localhost:4000/api/users/auth", { ...user }, config);
+  const response = await axios.post(
+    "https://books-fkzm.onrender.com/api/users/auth",
+    { ...user },
+    config
+  );
   return response.data.data;
 }
 
@@ -32,6 +36,10 @@ export async function createUser({ user }: NewUserArgs): Promise<AuthUser> {
     headers: { "Content-Type": "application/json" },
     withCredentials: true,
   };
-  const response = await axios.post("http://localhost:4000/api/users", { ...user }, config);
+  const response = await axios.post(
+    "https://books-fkzm.onrender.com/api/users",
+    { ...user },
+    config
+  );
   return response.data.data;
 }

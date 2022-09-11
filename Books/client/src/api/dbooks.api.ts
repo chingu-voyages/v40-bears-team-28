@@ -31,7 +31,7 @@ export async function getBookById({
   const response = await axios.get(`https://www.dbooks.org/api/book/${bookId}`, dbooksConfig);
   if (token) {
     const checkIfBookSaved = await axios.get(
-      `http://localhost:4000/api/user/books/${userId}/${bookId}`,
+      `https://books-fkzm.onrender.com/api/user/books/${userId}/${bookId}`,
       config
     );
     return { book: response.data, saved: checkIfBookSaved.data.data };
