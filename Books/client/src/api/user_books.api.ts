@@ -40,7 +40,7 @@ export async function saveBook({
     signal: controller.signal,
   };
   const response = await axios.post(
-    `http://localhost:4000/api/user/books/${user_id}`,
+    `https://books-fkzm.onrender.com/api/user/books/${user_id}`,
     { ...book },
     config
   );
@@ -59,7 +59,7 @@ export async function deleteSavedBook({
     signal: controller.signal,
   };
   const response = await axios.delete(
-    `http://localhost:4000/api/user/books/${userId}/${bookId}`,
+    `https://books-fkzm.onrender.com/api/user/books/${userId}/${bookId}`,
     config
   );
   return response.data.data;
@@ -75,6 +75,9 @@ export async function getSavedBooksForUser({
     withCredentials: true,
     signal: controller.signal,
   };
-  const response = await axios.get(`http://localhost:4000/api/user/books/${userId}`, config);
+  const response = await axios.get(
+    `https://books-fkzm.onrender.com/api/user/books/${userId}`,
+    config
+  );
   return response.data.data;
 }
