@@ -75,6 +75,10 @@ Having trouble finding time to read your favorite book? Books Hut is a free, big
 
 Reading a book from beginning to end is not always possible with work, family, and other commitments. Books Hut allows you to read books in between your busy schedule. Why rush through a good book? Read it at your own pace and store them in your library for future reference. With a wide-range of books, our library has everything you're looking for.
 
+[Deployed Frontend](https://books-hut.netlify.app/)
+
+[Deployed Backend](https://books-fkzm.onrender.com/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
