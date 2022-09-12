@@ -34,6 +34,7 @@ export default function useLogout(): UseLogoutReturn {
     return () => {
       controller.abort();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logout]);
 
   return {

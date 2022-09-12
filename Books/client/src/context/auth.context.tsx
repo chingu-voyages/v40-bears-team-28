@@ -46,6 +46,7 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
     return () => {
       controller.abort();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <AuthContext.Provider value={{ user, setUser, login, setLogin }}>
