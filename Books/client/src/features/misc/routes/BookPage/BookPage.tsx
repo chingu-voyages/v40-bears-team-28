@@ -1,11 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 import "./BookPage.scss";
 
 import { getBookById } from "../../../../api/dbooks.api";
 import { Book } from "../../../../api/types";
 import { saveBook, deleteSavedBook } from "../../../../api/user_books.api";
+import { ReactComponent as ArrowIcon } from "../../../../assets/images/arrow-icon.svg";
+import { ReactComponent as BookIcon } from "../../../../assets/images/book-icon.svg";
+import { ReactComponent as BookmarkIcon } from "../../../../assets/images/bookmark-icon.svg";
 import { AuthContext } from "../../../../context/auth.context";
 
 export function BookPage() {
@@ -79,21 +83,49 @@ export function BookPage() {
   }
 
   return book.title ? (
-    <div>
-      <p>{errorMsg}</p>
-      <p>{book.title}</p>
-      <p>{book.publisher}</p>
-      <p>{book.description}</p>
-      <p>{book.authors}</p>
-      <p>{book.pages}</p>
-      <img src={book.image} alt="book cover" />
-      <button onClick={handleSavingBook} className={bookmark}>
-        Save
-      </button>
-      <a href={`${book.url}/pdf/`} target="_blank" rel="noreferrer">
-        Read
-      </a>
-      <a href={`${book.download}`}>Download</a>
+    <div className="bookDetails">
+      <div className="flex column bookText">
+        <div className="backLinkWrapper">
+          <button onClick={() => window.history.back()} className="backLink">
+            <ArrowIcon className="icon" /> Back
+          </button>
+        </div>
+        <div className="flex bookInformation">
+          <img src={book.image} alt="book cover" className="bookCover" />
+          <div className="flex column bookText">
+            <p>{errorMsg}</p>
+            <p className="bookTitle">{book.title}</p>
+            <p className="bookAuthors">{book.authors}</p>
+            <div className="bookTags">
+              <div className="bookTag">
+                <p className="bookTagTitle">Originally published</p>{" "}
+                <p className="bookTagBody">{book.year}</p>
+              </div>
+              <div className="bookTag">
+                <p className="bookTagTitle">Publisher</p>{" "}
+                <p className="bookTagBody">{book.publisher}</p>
+              </div>
+              <div className="bookTag">
+                <p className="bookTagTitle">Pages</p>
+                <p className="bookTagBody">{book.pages}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex bookControls">
+        <button onClick={handleSavingBook} className={`${bookmark} saveButton`}>
+          <BookmarkIcon className="icon" /> {bookmark === "not-saved" ? "Save" : "Remove"}
+        </button>
+        <a href={`${book.url}/pdf/`} target="_blank" rel="noreferrer" className="readLink">
+          <BookIcon className="icon" />
+          Read
+        </a>
+        <a href={`${book.download}`} className="downloadLink">
+          Download
+        </a>
+      </div>
     </div>
   ) : (
     <h1>Loading</h1>

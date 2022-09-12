@@ -1,0 +1,134 @@
+@import "../../../../styles/main";
+
+.icon {
+  stroke: hsl($clr-saffron-mango);
+  fill: hsl($clr-saffron-mango);
+}
+
+.bookDetails {
+  background-color: hsl(177deg, 100%, 14%);
+  height: 100%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 10px;
+  position: relative;
+}
+
+.bookText {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.bookControls {
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  flex-direction: row;
+  border-top: 1px solid hsl($clr-jungle-mist);
+  padding-top: 20px;
+}
+
+.saveButton {
+  background-color: transparent;
+  color: hsl($clr-jungle-mist);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.readLink {
+  color: hsl($clr-jungle-mist);
+  text-decoration: none;
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  svg {
+    fill: none;
+  }
+}
+
+.downloadLink {
+  color: hsl($clr-jungle-mist);
+  text-decoration: none;
+}
+
+.backLinkWrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.backLink {
+  text-decoration: none;
+  color: hsl($clr-saffron-mango);
+  background-color: transparent;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookInformation {
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.bookCover {
+  padding: 0 20px;
+}
+
+.bookTitle {
+  font-size: $fs-800;
+  color: white;
+}
+
+.bookAuthors {
+  font-size: $fs-400;
+  color: white;
+}
+
+.bookTags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bookTag {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  .bookTagTitle {
+    color: hsl($clr-jungle-mist);
+    font-size: $fs-400;
+  }
+  .bookTagBody {
+    color: white;
+    font-size: $fs-700;
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .bookCover {
+    position: relative;
+    left: -10%;
+  }
+
+  .bookDetails {
+    flex-direction: row;
+  }
+  .bookControls {
+    flex-direction: column;
+    border-left: 1px solid hsl($clr-jungle-mist);
+    border-top: none;
+    padding-left: 20px;
+    align-items: center;
+  }
+
+  .bookInformation {
+    flex-direction: row;
+  }
+}

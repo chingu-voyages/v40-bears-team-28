@@ -1,6 +1,12 @@
 .flex {
   display: flex;
 }
+.column {
+  flex-direction: column;
+}
+.row {
+  flex-direction: row;
+}
 .justify-between {
   justify-content: space-between;
 }
@@ -24,13 +30,13 @@
 }
 
 .primary-btn {
-  @include button('primary', hsl($clr-black-pearl), hsl($clr-saffron-mango));
+  @include button("primary", hsl($clr-black-pearl), hsl($clr-saffron-mango));
   &:hover {
     background-color: hsl($clr-chardonnay);
   }
 }
 .secondary-btn {
-  @include button('secondary', hsl($clr-saffron-mango));
+  @include button("secondary", hsl($clr-saffron-mango));
   &:hover {
     color: hsl($clr-jungle-mist);
     border: solid 1px hsl($clr-jungle-mist);
