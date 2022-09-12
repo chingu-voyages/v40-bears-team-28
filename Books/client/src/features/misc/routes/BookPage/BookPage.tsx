@@ -56,7 +56,7 @@ export function BookPage() {
           setIsBookSaved(true);
         })
         .catch((error) => {
-          if (error.response.status === 401) {
+          if (error.response?.status === 401) {
             setErrorMsg("Please login first so you can save book");
           }
         });
